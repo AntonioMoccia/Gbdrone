@@ -1,0 +1,52 @@
+import Input from "../components/Input"
+
+export default {
+  name: 'Services',
+  title: 'Servizi',
+  type: 'object',
+  fields: [
+    {
+      name:'title',
+      title:'Title',
+      type:'string'
+    },
+
+    {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug',
+      options: {
+        source: 'title',
+        maxLength: 96,
+      },
+    },
+
+    {
+      name: 'Image',
+      title: 'image',
+      type: 'image',
+      options: {
+        hotspot: true,
+      },
+    },
+    {
+      name: 'body',
+      title: 'Body',
+      type: 'blockContent',
+    },
+  ],
+
+  preview: {
+    select: {
+      title: 'title',
+      author: 'author.name',
+      media: 'Image',
+    },
+    prepare(selection) {
+      const {author} = selection
+      return Object.assign({}, selection, {
+        subtitle: author && `by ${author}`,
+      })
+    },
+  },
+}
