@@ -23,6 +23,12 @@ export default {
             type: 'boolean',
         },
         {
+            name:'InCostruzione',
+            title:'Sito in costruzione',
+            type:'boolean',
+            InitialValue:'false'
+        },
+        {
             name: 'ButtonText',
             title: 'Testo bottone',
             type: 'text',
@@ -44,6 +50,6 @@ export default {
             options:{
                 accept:'video/*'
             }
-        },
+        }
     ],
 }

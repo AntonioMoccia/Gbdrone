@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 
 
+    /*background-position:${({parallax,parallaxActive})=>{return parallaxActive?`0% ${parallax/7}%`:'center'}};*/
 export const Hero = styled.div`
     background-image:url(${({image})=>image});
-    background-position:${({parallax,parallaxActive})=>{return parallaxActive?`0% ${parallax/7}%`:'center'}};
-    background-size:${({Mobile})=>Mobile?'120% 120%': 'cover'};
+    background-size:${({Mobile})=>Mobile? '150% 150%': 'cover'};
+    background-origin:'top left';
     height:100%;
     width:100%;
     display:flex;
