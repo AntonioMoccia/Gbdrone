@@ -19,7 +19,7 @@ useEffect(()=>{
   }`
 const params={type: 'HomePage'}
 Client.fetch(query,params).then(res=>{
-       setInCostruzione(res[1].InCostruzione)
+       setInCostruzione(res[0].InCostruzione)
 })
 })
   return (
