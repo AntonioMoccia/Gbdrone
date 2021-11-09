@@ -10,6 +10,8 @@ import Services from './Services'
 import ServicesPage from './ServicesPage'
 import HomePage from './HomePage'
 import ContactPage from './ContactPage'
+import AlbumGallery from '../src/GalleryComponent'
+import AboutPage from './AboutPage'
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -26,5 +28,7 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
+    AlbumGallery,
+    AboutPage
   ]),
 })

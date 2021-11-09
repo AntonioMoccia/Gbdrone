@@ -4,13 +4,29 @@ export default {
     type: 'document',
     fields: [
         {
-            name: 'image',
-            title: 'Immagine',
-            type: 'image',
-            options: {
-                hotspot: true,
-              },
-        },
+            name: 'media',
+            title: 'Media',
+            type: 'array',
+            of:[{
+              type:'image',    
+              options: {
+              hotspot: true,
+            }
+          },{
+            type: 'file',
+            options:{
+                accept:'video/*'
+            }
+          }
+        ],
+        validation:rule=>rule.custom(el=>{
+          if(el.length>1){
+            return "Esiste gia una immagine o un video"
+          }else{
+            return true
+          }
+        })
+          },
       {
           name: 'numeroTelefono',
           title: 'Numero di telefono',

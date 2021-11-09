@@ -36,6 +36,7 @@ export const Nav =styled.nav`
     padding-left:5vw;
     position: ${({isFixed})=>{return isFixed==true? 'fixed': 'absolute'}} ;
     z-index:100;
+    align-content:center;
     align-items:center;
     @media (max-width:868px){
         width:100vw;
@@ -44,14 +45,24 @@ export const Nav =styled.nav`
         margin-top:0;
         position:fixed;
     }
+    .inner-drop-down{
+        display:flex;
+        flex-direction:column;
+        color:black;
+        @media (max-width:868px){
 
+        }
+    }
 
-    ul{
+    .nav-list-link{
         display:flex;
         justify-content:space-around;
         align-items:center;        
         width:50vw;
         padding-right:10vw;
+        align-content:center;
+            padding-top:2%;
+            color:black;
         @media (max-width:868px){
                 background-color:white;
                 width:60vw;
@@ -70,15 +81,24 @@ export const Nav =styled.nav`
                     return isOpened==true? 'translateX(0%)' : 'translateX(100%)'
                 }};
                  }
-
-            li{
-                    list-style:none;
+                 a:hover{
+                    color:black
+                 }
+            li,.nav-link{
+                    text-align:center;
+                    padding:0;
+                    margin:0;
+                    align-items:center;
+                    height:100%;
+                    display:flex;
+                    justify-content:center;
                     color:black;
+                    text-transform:uppercase;
                     &:hover{
-                transform:scale(1.1);
+                     transform:scale(1.1);
             }
             @media (max-width:868px){
-                padding-bottom:10vh
+                padding-bottom:1vh
     }
 
  

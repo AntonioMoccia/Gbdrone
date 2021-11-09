@@ -6,53 +6,67 @@ import {
 } from './styled'
 import useScroll from '../../hooks/useScroll'
 import {useLocation, useHistory} from 'react-router-dom'
-function Index({image, text, buttonText, paddingTop, parallaxActive}) {
+function Index({media, text, buttonText,parallaxActive}) {
       const {scrollY,Mobile} = useScroll()
         const history=useHistory()
         const [infImage,setInfImage] = useState({})
 
-          useEffect(async()=>{
-          const img = new Image()
-          img.src=image
-    
-          img.onload=(img)=>{
-
-              const obj={
-                height: img.path[0].height,
-                width:  img.path[0].width
-              }
-              setInfImage(obj)
-          }
-        },[])
-
         useEffect(()=>{
-            const hero = document.querySelector('#hero');
-            hero.style.backgroundPositionY=`${scrollY/2.5}px`;
-            if(Mobile){
-              hero.style.backgroundSize=`150% 150%`;
-            }else{
-              hero.style.backgroundSize=`cover`;
-            }
-              
+          const image = document.querySelector('#hero > img');
+
+        if(image){
+              if(parallaxActive){
+                image.style.minHeight = '170vh'          
+              }else{
+                image.style.Height = '105vh'
+              }
+          }else{
+          }
+
+        },[media])
+        
+        
+        useEffect(()=>{
+          const image = document.querySelector('#hero > img');
+                if(image && parallaxActive){
+                  
+                  image.style.transform = `translateY(${scrollY/2.5}px)` 
+                }
 
 
-        },[scrollY])
+        },[media,scrollY])
 
       return (
+<>
+{
+media && (
+  <Hero id="hero">
+  {
+     media && media[0]?._type=="image" ? (
+       <img src={media[0]?.url}/>
+     ) : (
+       <video style={{
+         minHeight:'100%',
+         minWidth:'100%'
+       }} autoPlay muted loop>
+         <source src={media[0]?.url} />
+       </video>
+     )
+   }
+     <TextHero  parallax={scrollY}>{text}</TextHero>
 
-        <Hero id="hero" image={image} paddingTop={paddingTop} Mobile={Mobile}  parallax={scrollY} parallaxActive={parallaxActive}>
-            <TextHero  parallax={scrollY}>{text}</TextHero>
-     
-       {
-           buttonText? (
-            <HeroButton onClick={()=>{console.log(history.push('/services'))}}>
-                {buttonText}
-             </HeroButton>
-           ):(null)
-       }
+{
+    buttonText? (
+     <HeroButton onClick={()=>{console.log(history.push('/services'))}}>
+         {buttonText}
+      </HeroButton>
+    ):(null)
+}
 
-        </Hero>
-
+ </Hero>
+)
+}
+</>
     )
 }
 

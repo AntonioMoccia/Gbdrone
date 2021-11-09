@@ -6,9 +6,9 @@ import {motion} from 'framer-motion'
 import { Animation, transition } from '../Animations'
 import styled from 'styled-components'
 import Hero from '../Components/Hero'
-import BlockContent from '@sanity/block-content-to-react'
-import imageHome from '../img/1.jpeg'
+import Avatar from '../Components/sectionAvatar'
 
+import BlockContent from '@sanity/block-content-to-react'
 import {Client} from '../Client'
 const Wrapper = styled.div`
     overflow-x:hidden;
@@ -20,46 +20,63 @@ const serialize={
 }
 function Home() {
     const [response,setResponse] = useState([])
-    useEffect(()=>{
-        const query=`*[_type == $type]{
-            ButtonText,
+    useEffect(async()=>{
+        let query=`*[_type == $type]{
             Frase,
-            HeroText,
-              'Video':Video.asset->url,
+            InCostruzione,
+            Video{
+                _type,
+              "url":asset->url
+            },
+            _createdAt,
+            _id,
+            _rev,
+            _type,
+            _updatedAt,
+            avatar{
+              _type,
+              "url":asset->url
+            },
             h1,
-            'Image':image.asset->url,
+            media[]{
+             _type,
+            "url":asset->url
+             },
             parallax
-          }`
-        const params={type: 'HomePage'}
-        Client.fetch(query,params).then(res=>{
+            }`
+        let params={type: 'HomePage'}
+        await Client.fetch(query,params).then(res=>{
+            console.log(res)
            setResponse(res[0])
         })
     },[])
 
     return (
-        <Wrapper>
+   response && (
+    <Wrapper>
           
-        <motion.div 
-        initial='out' 
-        animate='in'
-        variants={Animation} 
-        transition={transition}
-        >
-            <div style={{
-                height:'100vh'
-            }}>
-        <Hero 
-        image={response.Image} 
+    <motion.div 
+    initial='out' 
+    animate='in'
+    variants={Animation} 
+    transition={transition}
+    >
+        <div style={{
+            height:'100vh'
+        }}>
+    <Hero 
+        media={response.media} 
         text={<BlockContent blocks={response.HeroText} serializers={serialize}/>} 
         buttonText={response.ButtonText}
-         paddingTop='40vh'
-         parallaxActive={response.parallax}
-        />
-        </div>
-            <SectionHome frase={response.Frase} h1={response.h1} />
-            <SectionVideoHome url={response.Video} />
-        </motion.div>
-        </Wrapper>
+        parallaxActive={response.parallax}
+    />
+    </div>
+        <Avatar image={response?.avatar?.url} />
+            {/*<SectionVideoHome url={response.Video?.url} />*/}
+        <SectionHome frase={<BlockContent blocks={response.Frase} serializers={serialize} />} />
+    </motion.div>
+    </Wrapper>
+   )
     )
 }
 

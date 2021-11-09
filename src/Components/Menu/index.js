@@ -9,8 +9,9 @@ Logo,
 Nav,
 MenuIcon
 } from './Styled'
+import {NavDropdown} from 'react-bootstrap'
 import LogoNero from '../../img/LogoNero.png'
-function Menu() {
+function Menu({services}) {
 const [isOpened,setIsOpened]=useState(false)
 const [isFixed,setIsFixed]=useState(false)
 const location = useLocation()
@@ -39,6 +40,9 @@ window.addEventListener('wheel',(e)=>{
 window.addEventListener('scroll',(e)=>{
     Operation()
 })
+useEffect(()=>{
+    console.log(services)
+},[services])
 
 
 
@@ -79,13 +83,30 @@ ref={menuRef}
                     <p className='nav-link'>Home</p>
                     </LinkMenu>
                 </li>
-                <li>
-                    <LinkMenu to="services" onClick={()=>{
+
+                    <NavDropdown
+                            id="nav-dropdown-dark-example"
+                            title="SERVIZI"
+                            menuVariant="white"
+                            color='black'
+            >
+                <div className='inner-drop-down'>
+                    {
+                        services.map(serve=>(
+                            <LinkMenu key={serve.slug.current} to={`${serve.slug.current}`} onClick={()=>{
                         setIsOpened(false)
+                                    if(document.querySelector('.dropdown-menu').classList.contains('show')){
+                                        document.querySelector('.dropdown-menu').classList.remove('show')
+                                    }
                     }}>
-                    <p className='nav-link'>Servizi</p>
-                    </LinkMenu>
-                </li>
+                                {serve.title}
+                            </LinkMenu>
+
+                        ))
+                    }
+                    </div>
+            </NavDropdown>
+
 
                 <li>
                     <LinkMenu to="/contact" onClick={()=>{
@@ -94,7 +115,13 @@ ref={menuRef}
                     <p className='nav-link'>Contattami</p>
                     </LinkMenu>
                 </li>
-
+                <li>
+                    <LinkMenu to="/about" onClick={()=>{
+                        setIsOpened(false)
+                    }}>
+                    <p className='nav-link'>Chi siamo</p>
+                    </LinkMenu>
+                </li>
             </ul>
 
 

@@ -3,7 +3,7 @@ import Input from "../components/Input"
 export default {
   name: 'Services',
   title: 'Servizi',
-  type: 'object',
+  type: 'document',
   fields: [
     {
       name:'title',
@@ -22,18 +22,39 @@ export default {
     },
 
     {
-      name: 'Image',
-      title: 'image',
-      type: 'image',
-      options: {
+      name: 'media',
+      title: 'Media',
+      type: 'array',
+      of:[{
+        type:'image',    
+        options: {
         hotspot: true,
-      },
+      }
+    },{
+      type: 'file',
+      options:{
+          accept:'video/*'
+      }
+    }
+  ],
+  validation:rule=>rule.custom(el=>{
+    if(el.length>1){
+      return "Esiste gia una immagine o un video"
+    }else{
+      return true
+    }
+  })
     },
     {
       name: 'body',
       title: 'Body',
       type: 'blockContent',
     },
+    {
+      name:'gallery',
+      title:'Gallery',
+      type:'album_gallery'
+    }
   ],
 
   preview: {

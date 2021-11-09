@@ -4,13 +4,29 @@ export default {
     type: 'document',
     fields: [
         {
-            name: 'image',
-            title: 'Immagine',
-            type: 'image',
-            options: {
-                hotspot: true,
-              },
-        },
+            name: 'media',
+            title: 'Media',
+            type: 'array',
+            of:[{
+              type:'image',    
+              options: {
+              hotspot: true,
+            }
+          },{
+            type: 'file',
+            options:{
+                accept:'video/*'
+            }
+          }
+        ],
+        validation:rule=>rule.custom(el=>{
+          if(el.length>1){
+            return "Esiste gia una immagine o un video"
+          }else{
+            return true
+          }
+        })
+          },
         {
             name: 'HeroText',
             title: 'Testo sull\'immagine',
@@ -34,14 +50,14 @@ export default {
             type: 'text',
         },
         {
-            name: 'h1',
-            title: 'Titolo Frase',
-            type: 'string',
+            name:'avatar',
+            title:'avatar',
+            type:'image'
         },
         {
             name: 'Frase',
             title: 'Frase testo',
-            type: 'string',
+            type: 'blockContent',
         },
         {
             name: 'Video',

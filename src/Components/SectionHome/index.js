@@ -5,10 +5,10 @@ import {
     SectionHome
 } from './styled'
 
-function index({frase,h1}) {
+function index({frase}) {
     return (
 <SectionHome>
-    <h1>{h1}</h1>
+ 
     <p>{frase}</p>
 </SectionHome>
     )

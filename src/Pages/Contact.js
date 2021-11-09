@@ -9,10 +9,28 @@ import {Client,builder} from '../Client'
 function Contact() {
     const [contact,setContact]=useState([])
     useEffect(()=>{
-        const query=`*[_type == $type]`
+        const query=`*[_type==$type]{
+            Facebook,
+          Instagram,
+          PI,
+          _createdAt,
+          _id,
+          _rev,
+          _type,
+          _updatedAt,
+          email,
+               media[]{
+                       _type,
+                      "url":asset->url
+                       },
+          numeroTelefono
+          
+          }
+          `
         const params={type: 'ContactPage'}
         Client.fetch(query,params).then(res=>{
             setContact(res[0])
+            console.log(res[0])
         })
     },[])
 
@@ -23,10 +41,10 @@ function Contact() {
         variants={Animation} 
         transition={transition}
         >
-            <Header>
-                <Hero image={builder.image(contact.image).url()} text='Contattami' paddingTop='10%'/>
-            </Header>
-            <Contacts PI={contact.PI} number={contact.numeroTelefono} email={contact.email}/>
+
+          
+            <Contacts contact={contact}/>
+
         </motion.div>
     )
 }

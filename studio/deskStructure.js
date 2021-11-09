@@ -1,7 +1,8 @@
 import S from '@sanity/desk-tool/structure-builder'
-import {FaHome} from 'react-icons/fa'
+import {FaHome,FaInfo} from 'react-icons/fa'
 import {GrServices} from 'react-icons/gr'
 import {RiContactsFill} from 'react-icons/ri'
+
 export default () =>
 S.list()
     .title('Gbdrone')
@@ -18,7 +19,7 @@ S.list()
                      
                 ),
 
-                S.listItem()
+            /*    S.listItem()
                 .title('Service Page')
                 .icon(GrServices)
                 .child(
@@ -28,7 +29,8 @@ S.list()
                         .schemaType('ServicesPage')
                         .documentId('ServicesPage')
                    
-                ),
+                ),*/
+            
                 S.listItem()
                 .title('Contact Page')
                 .icon(RiContactsFill)
@@ -40,6 +42,18 @@ S.list()
                         .documentId('ContactPage')
                    
                 ),
-                ...S.documentTypeListItems().filter(item=>!['HomePage','ContactPage','media.tag','ServicesPage'].includes(item.getId()))
+                S.listItem()
+                .title('About Page')
+                .icon(FaInfo)
+                .child(
+                    S.document()
+                    .title('About')
+                    
+                        .schemaType('AboutPage')
+                        .documentId('AboutPage')
+                   
+                ),
+      
+                ...S.documentTypeListItems().filter(item=>!['HomePage','ContactPage','media.tag','ServicesPage','AboutPage'].includes(item.getId()))
             ]
         )    

@@ -1,0 +1,16 @@
+.avatar-home{
+
+    display: flex;
+    justify-content: center;
+    max-height: 30%;
+    margin: 10% 0;
+    .image{
+        border-style: solid;
+        border-color: black;
+        border-width: 2px;
+    }
+    img{
+        height: 20vw;
+        
+    }
+}

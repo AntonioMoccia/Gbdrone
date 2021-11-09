@@ -1,20 +1,45 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import {FaWhatsapp,FaMailBulk,FaPhone, FaMobile} from 'react-icons/fa'
 import {ContactWrapper, SingleContact, Mail,Map} from './styled'
-
-function index({number,email,PI}) {
-
+import Form from '../contactForm'
+import './style.scss'
+function Index({contact}) {
+useEffect(()=>{
+    console.log(contact)
+},[])
     return (
-        <div>
+        <div className='contact-wrapper'>
+
+<div className='image-contact'>
+
+{
+    contact?.media?.map(media=>(
+            <>
+            {
+                media._type=='image'?(
+               <img src={media.url} />     
+                ):(
+                    <video>
+                        <source src={media.url} />
+                    </video>
+                )
+            }
+            </>
+    ))
+}
+
+</div>
+
+
             <ContactWrapper>
                 <SingleContact>
                     <FaMobile />
-                  {number}
+                  {contact?.numeroTelefono}
                 </SingleContact>
                 <SingleContact>
                <FaMailBulk />
-               <Mail href={`mailto:${email}`} >
-              {email}
+               <Mail href={`mailto:${contact?.email}`} >
+              {contact?.email}
             </Mail>
                 </SingleContact>
                 <SingleContact>
@@ -22,14 +47,19 @@ function index({number,email,PI}) {
                         fontSize:'3vw',
                         marginRight:'10%'
                     }}>PI</h1>
-                  {PI}
+                  {contact?.PI}
                 </SingleContact>
             </ContactWrapper>
+                    <Form />
+
+
         <Map>
 
         </Map>
+                  
+
         </div>
     )
 }
 
-export default index
+export default Index

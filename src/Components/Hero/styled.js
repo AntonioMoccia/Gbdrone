@@ -3,10 +3,8 @@ import styled from 'styled-components'
 
     /*background-position:${({parallax,parallaxActive})=>{return parallaxActive?`0% ${parallax/7}%`:'center'}};*/
 export const Hero = styled.div`
-    background-image:url(${({image})=>image});
-    background-size:${({Mobile})=>Mobile? '150% 150%': 'cover'};
-    background-origin:'top left';
-    height:100%;
+
+    max-height:100%;
     width:100%;
     display:flex;
     justify-content:center;
@@ -16,6 +14,10 @@ export const Hero = styled.div`
     background-color:grey;
     padding-top:${({paddingTop})=>paddingTop?paddingTop:0};
     z-index:-1;
+    overflow: hidden;
+    img{
+        width: 100%;    
+    }
 
   /*  padding-top:35vh;*/
 `;

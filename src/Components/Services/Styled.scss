@@ -1,0 +1,127 @@
+body{
+  overflow-x: hidden;  
+}
+.servizio-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media (max-width:868px) {
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+    .swiper-pagination-bullet-active{
+        background: white;
+        
+    }
+    .buttons-swiper{
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        padding-top: 0%;
+       
+        .next-button{
+            margin-left: 5%;
+
+        }
+        .prev-button,.next-button{
+            font-size:1.7em;
+            color: black;
+            cursor: pointer;
+        }
+    }
+    padding-top: 12%;
+    .title-services{
+        width: 100vw;
+        text-align: center;
+        text-transform: uppercase;
+        margin-top: 7%;
+        padding-left: 0%;
+    }
+    .image-services{
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+        img{
+            width: 50vw;
+            height:60vh ;  
+            @media (max-width:868px){
+                height: 60vw;
+                width: 80vw;
+                margin-left: 10vw; ;
+            } 
+        }
+        @media (max-width:868px) {
+            margin-top: 15%;
+        }
+    }
+    .wrapper-frase{
+        width: 60%;
+        height: auto;
+        word-wrap: break-word;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-top: 5%;
+        margin-bottom: 5%;
+        
+        @media (max-width:868px){
+            width: 90%;
+            justify-content: center;
+            color:black;
+            margin-left: 2%;
+        }
+    }
+    
+    
+    .swiper-wrapper-container{
+        height: 70vh;
+        width: 60vw;
+        position: relative;
+        left: 0;
+
+        @media (max-width:868px){
+            width: 100vw;
+            height: 60vh;
+            left: 0;
+        }
+        .swiper-container{
+            @media (max-width:868px){
+                width: 100vw;
+                height: 70vh;
+            }
+            .swiper-wrapper{
+                    height: 60vh;
+                    @media (max-width:868px){
+                        width: 100vw;
+                        height: 60vh;
+                    }
+            .swiper-slide{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                @media (max-width:868px){
+                    width: 100vw;
+                    height: 60vh;
+                }
+                img{
+                    flex-shrink: 0;
+                    max-width: 100%;
+                    max-height: 100%;
+                    @media (max-width:868px){
+                        width: 100vw;
+                        height: 60vh;
+                    }
+                }
+            }
+        }
+            }
+
+    
+        }
+}
