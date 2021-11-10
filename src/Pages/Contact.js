@@ -30,7 +30,7 @@ function Contact() {
         const params={type: 'ContactPage'}
         Client.fetch(query,params).then(res=>{
             setContact(res[0])
-            console.log(res[0])
+     
         })
     },[])
 

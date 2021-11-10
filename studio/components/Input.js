@@ -23,7 +23,7 @@ const [newImage,setNewImage]=useState([])
  const uploadImage=async (file)=>{
 
     await client.assets.upload('image',file).then(image=>{
-        console.log(image)
+      
         onChange(
             PatchEvent.from([
             setIfMissing([]),
@@ -70,7 +70,7 @@ client.fetch(`*[_id=="${document._id}"]{
             _type 
         }
 }`).then(result=>{
-        console.log(result[0].Album)
+
     setInitialImage(result[0].Album)
 })
 })

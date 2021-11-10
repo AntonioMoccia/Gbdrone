@@ -4,9 +4,7 @@ import {ContactWrapper, SingleContact, Mail,Map} from './styled'
 import Form from '../contactForm'
 import './style.scss'
 function Index({contact}) {
-useEffect(()=>{
-    console.log(contact)
-},[])
+
     return (
         <div className='contact-wrapper'>
 

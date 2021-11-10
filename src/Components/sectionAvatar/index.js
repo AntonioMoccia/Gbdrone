@@ -2,7 +2,7 @@ import React from 'react'
 import './style.scss'
 
 function Index({image}){
-    console.log(image)
+
     return(
         
         <div className='avatar-home'>

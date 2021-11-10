@@ -27,7 +27,7 @@ export default{
         },
         prepare(selection) {
             const {gallery} = selection
-            console.log(gallery)
+    
             return {
               gallery
             }

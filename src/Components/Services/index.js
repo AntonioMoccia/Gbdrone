@@ -16,7 +16,7 @@ function Index() {
 const location = useLocation()
 const [risultato,setRisultato] = useState({})
 useEffect(()=>{
-    console.log(location.pathname)
+  
     let query = `*[_type=='Services' && slug.current==$slug]{
         _createdAt,
         _id,
@@ -39,7 +39,7 @@ useEffect(()=>{
         }`
     let parametri={slug:location.pathname.replace('/','')}
         Client.fetch(query,parametri).then(result=>{
-            console.log(result)
+       
             setRisultato(result[0])
         })  
 },[location.pathname])

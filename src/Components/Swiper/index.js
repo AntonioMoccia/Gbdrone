@@ -36,7 +36,7 @@ function index() {
 
                 {
                     images.map((img,index)=>{
-                        console.log(img)
+                     
                         return(
 
                                 <SwiperSlide key={index} style={{

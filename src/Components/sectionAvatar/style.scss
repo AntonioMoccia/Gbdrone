@@ -13,7 +13,9 @@
         border-width: 2px;
     }
     img{
-        height: 20vw;
-        
+        height: 30vh;
+        @media (max-width:868px) {
+            height: 30vh;
+        }
     }
 }

@@ -22,7 +22,9 @@ body{
         align-items: center;
         align-content: center;
         padding-top: 0%;
-       
+        @media (max-width:868px) {
+                display: none;
+        }
         .next-button{
             margin-left: 5%;
 
@@ -47,7 +49,8 @@ body{
         margin-top: 5%;
         img{
             width: 50vw;
-            height:60vh ;  
+            height:60vh ; 
+            margin-top: 15%; 
             @media (max-width:868px){
                 height: 60vw;
                 width: 80vw;
@@ -86,19 +89,19 @@ body{
 
         @media (max-width:868px){
             width: 100vw;
-            height: 60vh;
+            height: 40vh;
             left: 0;
         }
         .swiper-container{
             @media (max-width:868px){
                 width: 100vw;
-                height: 70vh;
+                height: 40vh;
             }
             .swiper-wrapper{
                     height: 60vh;
                     @media (max-width:868px){
                         width: 100vw;
-                        height: 60vh;
+                        height: 40vh;
                     }
             .swiper-slide{
                 display: flex;
@@ -107,7 +110,7 @@ body{
                 overflow: hidden;
                 @media (max-width:868px){
                     width: 100vw;
-                    height: 60vh;
+                    height: 40vh;
                 }
                 img{
                     flex-shrink: 0;
@@ -115,7 +118,7 @@ body{
                     max-height: 100%;
                     @media (max-width:868px){
                         width: 100vw;
-                        height: 60vh;
+                        height: 40vh;
                     }
                 }
             }

@@ -1,6 +1,6 @@
 import sanityClient from '@sanity/client'
 
-console.log(process.env.SANITY_STUDIO_PROJECT_ID)
+
 export const client = sanityClient({
     projectId: 'vqzctmyz',
     dataset: 'production',

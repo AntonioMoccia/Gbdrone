@@ -15,7 +15,7 @@ import {client} from '../../Client'
 const deleteElement = async (key,document)=>{
     client.patch(`${document}`).unset([`gallery.media[_key=="${key}"]`]).commit().then(async ()=>{
         await client.delete(key).then(e=>{
-            console.log(e)
+        
          })
     })
     }
@@ -62,7 +62,7 @@ const pComponent=({value,document})=> {
                                 onClick={(e)=>{
                                     const dataKey=e.currentTarget.parentElement.getAttribute('data-key')
                                     const dataDocument=e.currentTarget.parentElement.getAttribute('data-document')
-                                    console.log(dataKey,dataDocument)
+                                 
                                     deleteElement(dataKey,dataDocument)
                                   
                                 }}

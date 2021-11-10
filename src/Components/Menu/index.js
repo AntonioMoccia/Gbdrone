@@ -40,9 +40,7 @@ window.addEventListener('wheel',(e)=>{
 window.addEventListener('scroll',(e)=>{
     Operation()
 })
-useEffect(()=>{
-    console.log(services)
-},[services])
+
 
 
 

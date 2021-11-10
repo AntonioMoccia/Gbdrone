@@ -20,12 +20,8 @@ function Servizi() {
         const query=`*[_type == $type]`
         const params={type: 'Services'}
         Client.fetch(query,params).then(res=>{
-            console.log(res)
-            /*res[0].Services.map(ser=>{
-                if(ser.gallery){
-                    console.log(ser.gallery.media)
-                }
-            })*/
+       
+
             setServices(res)
         })
     

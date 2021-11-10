@@ -10,9 +10,7 @@ const serialize={
 
 
 function AboutComponent({result}){
-    useEffect(()=>{
-        console.log(result[0])
-    },[result])
+
     return(
         <div className='wrapper-about'>
             <div className='media-about'>

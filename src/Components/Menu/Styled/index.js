@@ -74,7 +74,7 @@ export const Nav =styled.nav`
                 justify-content:center;
                 right:0;
                 top:0;
-                padding:0;
+       
                 margin:0;
                 transition:ease-out 0.2s all;
                 transform:${({isOpened})=>{

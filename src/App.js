@@ -17,13 +17,14 @@ function App() {
   const [InCostruzione,setInCostruzione] = useState(false)
   const [servizi,setServizi] = useState([])
 const location=useLocation()
-useEffect(()=>{
+useEffect(()=>{ 
+  console.log('Powered by Antonio Moccia')
   setInCostruzione(true)
        let params = {type: 'Services'}
        let query = `*[_type == $type]`
      Client.fetch(query,params).then(res=>{
        setServizi(res)
-       console.log(res)
+
      })
 
     },[])
@@ -32,13 +33,13 @@ useEffect(()=>{
     <>
 
     {
-      InCostruzione==true? (<Menu services={servizi}/>):(null)
+      InCostruzione==false? (<Menu services={servizi}/>):(null)
     }
     <Whatsapp />
     <AnimatePresence exitBeforeEnter>
       <Switch location={location} key={location.pathname}>
       {
-        InCostruzione==true? (
+        InCostruzione==false? (
           <>
           <Route path="/" component={Home} exact/>
           

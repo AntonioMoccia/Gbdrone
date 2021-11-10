@@ -46,7 +46,7 @@ function Home() {
             }`
         let params={type: 'HomePage'}
         await Client.fetch(query,params).then(res=>{
-            console.log(res)
+     
            setResponse(res[0])
         })
     },[])

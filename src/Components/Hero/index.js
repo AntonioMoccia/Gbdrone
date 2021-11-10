@@ -61,7 +61,7 @@ media && (
 
 {
     buttonText? (
-     <HeroButton onClick={()=>{console.log(history.push('/services'))}}>
+     <HeroButton onClick={()=>{history.push('/services')}}>
          {buttonText}
       </HeroButton>
     ):(null)
