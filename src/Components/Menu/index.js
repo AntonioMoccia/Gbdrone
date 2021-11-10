@@ -83,7 +83,7 @@ ref={menuRef}
                     <p className='nav-link'>Home</p>
                     </LinkMenu>
                 </li>
-
+                    <li>
                     <NavDropdown
                             id="nav-dropdown-dark-example"
                             title="SERVIZI"
@@ -106,7 +106,7 @@ ref={menuRef}
                     }
                     </div>
             </NavDropdown>
-
+            </li>
 
                 <li>
                     <LinkMenu to="/contact" onClick={()=>{

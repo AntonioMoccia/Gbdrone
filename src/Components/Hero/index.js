@@ -6,6 +6,7 @@ import {
 } from './styled'
 import useScroll from '../../hooks/useScroll'
 import {useLocation, useHistory} from 'react-router-dom'
+import './style.scss'
 function Index({media, text, buttonText,parallaxActive}) {
       const {scrollY,Mobile} = useScroll()
         const history=useHistory()
@@ -40,12 +41,15 @@ function Index({media, text, buttonText,parallaxActive}) {
 <>
 {
 media && (
-  <Hero id="hero">
+
+    <div className='hero-wrapper'>
+
+
   {
      media && media[0]?._type=="image" ? (
-       <img src={media[0]?.url}/>
+       <img className='image-hero' src={media[0]?.url}/>
      ) : (
-       <video style={{
+       <video className='video-hero' style={{
          minHeight:'100%',
          minWidth:'100%'
        }} autoPlay muted loop>
@@ -62,8 +66,8 @@ media && (
       </HeroButton>
     ):(null)
 }
+</div>
 
- </Hero>
 )
 }
 </>

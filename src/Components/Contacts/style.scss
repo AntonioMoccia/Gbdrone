@@ -24,4 +24,15 @@
             margin-top: 15%;
         }
     }
+    .form-wrapper{
+        .form-title{
+            margin-bottom: 5%;
+            font-size: 33px;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
 }

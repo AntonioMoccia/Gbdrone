@@ -50,7 +50,12 @@ useEffect(()=>{
                   {contact?.PI}
                 </SingleContact>
             </ContactWrapper>
+            <div className='form-wrapper'>
+                <div className='form-title'>
+                    Contattaci!
+                </div>
                     <Form />
+            </div>
 
 
         <Map>

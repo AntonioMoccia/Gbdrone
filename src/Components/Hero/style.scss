@@ -1,11 +1,17 @@
-.hero-wrapper
-{
-    height: 100vh;
-    width: 100vw;
 
-    img,video{
-        min-height: 110vh;
-        min-width: 100%;
+    .hero-wrapper
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        max-height: 100vh;
+        overflow: hidden;
+        img,video{
+            min-height: 100vh;
+            min-width: 100vw;
+        }
+
+    
     }
 
-}

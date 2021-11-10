@@ -1,5 +1,5 @@
-import React from 'react'
-import {Form} from 'react-bootstrap'
+import React,{useRef} from 'react'
+import {Form, Button} from 'react-bootstrap'
 function Index(){
     return(
         <>
@@ -12,6 +12,7 @@ function Index(){
                 <Form.Label>Example textarea</Form.Label>
                 <Form.Control as="textarea" rows={3} />
             </Form.Group>
+            <Button variant="light" >Invia</Button>
             </Form>
         </>
     )
