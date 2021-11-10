@@ -1,0 +1,26 @@
+.response-message{
+    .true-message,.false-message{
+        height: 10vh;
+        width: 30vw;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-direction: column;
+        border-radius: 3% 3% 3% 3%;
+        border-style: solid;
+        border-width:2px;
+        text-align: center;
+        color: white;
+        padding-left: 2%;
+        padding-right: 2%;
+    }
+    .true-message{
+        border-color: rgb(35, 184, 35);
+        background-color: rgb(35, 184, 35);
+    }
+    .false-message{
+        border-color: rgb(224, 36, 36);
+        background-color: rgb(224, 36, 36);
+    }
+    
+}

@@ -1,17 +1,27 @@
 import styled from 'styled-components'
 
 export const SectionHome=styled.div`
-    height:50vh;
-    width:100vw;
+    width: 100%;
+    height: auto;
     display:flex;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+    margin-bottom: 5%;
     flex-direction:column;
-    justify-content:center;
     background-color:white;
+    text-align: center;
+        @media (max-width:868px){
+            width: 100%;
+            justify-content: flex-start;
+            color:black;
+  
+        }
+    
     p{        
         width:80vw;
         font-size:clamp(2vw,4vw,7vw);
-        text-align:center;
+        
     }
     h1{
         font-size:clamp(2vw,4vw,7vw);

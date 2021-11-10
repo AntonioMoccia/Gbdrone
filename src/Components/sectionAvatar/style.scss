@@ -4,6 +4,9 @@
     justify-content: center;
     max-height: 30%;
     margin: 10% 0;
+    @media (max-width:868px) {
+        margin: 10% 10%;
+    }
     .image{
         border-style: solid;
         border-color: black;
