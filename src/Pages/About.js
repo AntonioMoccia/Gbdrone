@@ -1,7 +1,8 @@
 import React,{useEffect, useState} from "react";
 import {Client,builder} from '../Client'
 import AboutComponent from '../Components/About'
-
+import {Animation,transition} from '../Animations'
+import {motion} from 'framer-motion'
 function About(){
 const [risultato,setRisultato] = useState([])
 
@@ -30,8 +31,15 @@ const [risultato,setRisultato] = useState([])
 
 return(
     <>
+        <motion.div 
+    initial='out' 
+    animate='in'
+    variants={Animation} 
+    transition={transition}
+    >
     <AboutComponent result={risultato} />
-    </>
+    </motion.div>
+     </>
 )
 } 
 export default About

@@ -7,8 +7,9 @@ import SwiperCore,{Navigation,Pagination} from 'swiper'
 import { Swiper, SwiperSlide } from "swiper/react";
 import BlockContent from '@sanity/block-content-to-react'
 import {FiArrowRightCircle,FiArrowLeftCircle} from 'react-icons/fi'
+import {Animation,transition} from '../../Animations'
+import {motion} from 'framer-motion'
 import 'swiper/swiper-bundle.min.css'
-
 import 'swiper/swiper.min.css'
 import './Styled.scss'
 
@@ -53,6 +54,12 @@ const serialize={
 
     SwiperCore.use([Navigation,Pagination])
     return (
+        <motion.div
+        initial='out' 
+        animate='in'
+        variants={Animation} 
+        transition={transition}
+        >    
         <div className='servizio-wrapper'>
             <div className='image-services'>
 
@@ -118,8 +125,11 @@ const serialize={
                     <FiArrowLeftCircle className='prev-button' />
                     <FiArrowRightCircle className='next-button' />
             </div>
+
         </div>
+                    </motion.div>
     )
+
 }
 
 export default Index

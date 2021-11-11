@@ -6,6 +6,7 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 17%;
     @media (max-width:868px) {
         justify-content: flex-start;
         align-items: flex-start;
@@ -35,7 +36,7 @@ body{
             cursor: pointer;
         }
     }
-    padding-top: 12%;
+
     .title-services{
         width: 100vw;
         text-align: center;
@@ -46,11 +47,11 @@ body{
     .image-services{
         display: flex;
         justify-content: center;
-        margin-top: 5%;
+
         img{
             width: 50vw;
             height:60vh ; 
-            margin-top: 15%; 
+
             @media (max-width:868px){
                 height: 60vw;
                 width: 80vw;
