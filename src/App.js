@@ -19,7 +19,7 @@ function App() {
 const location=useLocation()
 useEffect(()=>{ 
   console.log('Powered by Antonio Moccia')
-  setInCostruzione(true)
+  setInCostruzione(false)
        let params = {type: 'Services'}
        let query = `*[_type == $type]`
      Client.fetch(query,params).then(res=>{

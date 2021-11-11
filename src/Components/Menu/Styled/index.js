@@ -26,6 +26,7 @@ export const Logo =styled(Link)`
 export const Nav =styled.nav`
 
     height:12vh;
+    min-height:100px;
     width:${({isFixed})=>{return isFixed==true? '100vw': '80vw'}} ;
     margin-left:${({isFixed})=>{return isFixed==true? 0: '10vw'}} ;
     margin-top:${({isFixed})=>{return isFixed==true? 0: '10vh'}} ;

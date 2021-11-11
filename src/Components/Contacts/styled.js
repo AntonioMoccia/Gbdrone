@@ -13,6 +13,8 @@ export const ContactWrapper = styled.div`
 `
 export const SingleContact=styled.div`
         height:10vh;
+        min-height:10vh;
+        margin-top:5%;
         width: 80%;
         background-color: white;
         display: flex;
