@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState,Suspense} from 'react'
 import {
     Hero,
     HeroButton,
@@ -37,6 +37,7 @@ function Index({media, text, buttonText,parallaxActive}) {
 
         },[media,scrollY])
 
+
       return (
 <>
 {
@@ -49,9 +50,13 @@ media && (
      media && media[0]?._type=="image" ? (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
-       <video className='video-hero' autoPlay muted loop>
+       <Suspense fallback={()=>{console.log('loading')}}>
+       <video className='video-hero' autoPlay muted loop onLoad={(e)=>{
+         console.log(e)
+       }}>
          <source src={media[0]?.url} />
        </video>
+       </Suspense>
      )
    }
      <TextHero  parallax={scrollY}>{text}</TextHero>
