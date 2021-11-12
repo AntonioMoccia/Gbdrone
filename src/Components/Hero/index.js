@@ -49,10 +49,7 @@ media && (
      media && media[0]?._type=="image" ? (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
-       <video className='video-hero' style={{
-         minHeight:'100%',
-         minWidth:'100%'
-       }} autoPlay muted loop>
+       <video className='video-hero'  autoPlay muted loop>
          <source src={media[0]?.url} />
        </video>
      )
