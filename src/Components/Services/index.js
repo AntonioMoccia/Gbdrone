@@ -70,7 +70,7 @@ const serialize={
                             media._type=='image'?(
                            <img src={media.url} />     
                             ):(
-                                <video controls='false'>
+                                <video>
                                     <source src={media.url} />
                                 </video>
                             )
@@ -110,7 +110,7 @@ const serialize={
                             </SwiperSlide>
                                ):(
                                 <SwiperSlide key={image._key} >
-                               <video controls='false'>
+                               <video>
                                    <source src={image.url} />
                                </video>
                             </SwiperSlide>

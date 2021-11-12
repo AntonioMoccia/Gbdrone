@@ -14,7 +14,7 @@
         }
         img, video{
             width: 100vw;
-            min-height: 100%;
+            min-height: 100vh;
             @media (max-width:868px) {
                 padding: 0% 2%;
                 padding-top: 20%;
