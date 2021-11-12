@@ -51,9 +51,7 @@ media && (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
        <Suspense fallback={()=>{console.log('loading')}}>
-       <video className='video-hero' src={media[0]?.url} autoPlay muted loop onLoad={(e)=>{
-         console.log(e)
-       }}>
+       <video className='video-hero' src={media[0]?.url} autoPlay muted loop >
 
        </video>
        </Suspense>
