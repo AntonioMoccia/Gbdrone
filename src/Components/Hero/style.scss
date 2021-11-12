@@ -8,7 +8,7 @@
         max-height: 100vh;
         overflow: hidden;
         img, video{
-            width: calc(100vh*(100vw/100vh));
+            width: calc(100vh*(100%/100%));
             min-height: 100vh;
         }
 
