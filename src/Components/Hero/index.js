@@ -50,13 +50,11 @@ media && (
      media && media[0]?._type=="image" ? (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
-       <Suspense fallback={()=>{console.log('loading')}}>
-     <div className='video-wrapper-hero'>
-       <video className='video-hero' src={media[0]?.url} autoPlay muted loop >
 
+       <video className='video-hero' autoPlay muted loop >
+         <source src={media[0]?.url} />
        </video>
-       </div>
-       </Suspense>
+
      )
    }
      <TextHero  parallax={scrollY}>{text}</TextHero>
