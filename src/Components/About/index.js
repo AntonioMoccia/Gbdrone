@@ -18,7 +18,7 @@ function AboutComponent({result}){
                             result[0]?.media[0]?._type=='image'?(
                                 <img src={result[0]?.media[0]?.url} />     
                                  ):(
-                                     <video>
+                                     <video controls='false'>
                                          <source src={result[0]?.media[0]?.url} />
                                      </video>
                                  )

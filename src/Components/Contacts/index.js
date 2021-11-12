@@ -17,7 +17,7 @@ function Index({contact}) {
                 media._type=='image'?(
                <img src={media.url} />     
                 ):(
-                    <video>
+                    <video controls='false'>
                         <source src={media.url} />
                     </video>
                 )
