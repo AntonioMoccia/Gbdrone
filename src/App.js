@@ -19,9 +19,7 @@ function App() {
 const location=useLocation()
 useEffect(()=>{ 
   console.log('Powered by Antonio Moccia')
-  Client.fetch('*[_type == "HomePage"]{InCostruzione}').then(res=>{
-    setInCostruzione(res[0].InCostruzione)
-  })
+
        let params = {type: 'Services'}
        let query = `*[_type == $type]`
      Client.fetch(query,params).then(res=>{
@@ -34,15 +32,12 @@ useEffect(()=>{
   return (
     <>
 
-    {
-      InCostruzione==false? (<Menu services={servizi}/>):(null)
-    }
+  <Menu services={servizi}/>
     <Whatsapp />
     <AnimatePresence exitBeforeEnter>
       <Switch location={location} key={location.pathname}>
       {
-        InCostruzione==false? (
-          <>
+        <>
           <Route path="/" component={Home} exact/>
           
           {
@@ -53,9 +48,7 @@ useEffect(()=>{
           <Route path="/contact" component={Contact} exact />
           <Route path="/about" component={About} exact />
         </>
-        ):(
-          <Route path="/" component={InCostruzionePage} exact />
-        )
+        
       }
       
 
