@@ -5,11 +5,14 @@
         justify-content: center;
         align-items: center;
         align-content: center;
-        max-height: 100vh;
+       min-height: 100vh;
         overflow: hidden;
+        @media (min-width:868px) {
+            max-height: 80vh;
+        }
         img, video{
             width: 100vw;
-            min-height: 100vh;
+            min-height: 100%;
         }
 
     

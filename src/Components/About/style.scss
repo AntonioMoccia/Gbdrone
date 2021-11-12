@@ -7,12 +7,12 @@
     .media-about{
        margin-top: 17%;
         img{
-            width: 50vw;
-            height:60vh ;  
+            max-width: 50vw;
+            max-height:60vh ;  
             @media (max-width:868px){
-                height: 60vw;
-                width: 80vw;
-                margin-left: 10vw; ;
+                max-height: 60vw;
+                max-width: 80vw;
+                margin-left: 10vw;
             }
         }
        

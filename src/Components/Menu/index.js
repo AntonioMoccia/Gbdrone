@@ -117,7 +117,7 @@ ref={menuRef}
                     <LinkMenu to="/about" onClick={()=>{
                         setIsOpened(false)
                     }}>
-                    <p className='nav-link'>Chi siamo</p>
+                    <p className='nav-link'>Chi sono</p>
                     </LinkMenu>
                 </li>
             </ul>
