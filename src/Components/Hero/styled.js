@@ -11,7 +11,7 @@ export const Hero = styled.div`
     align-items:center;
     font-size:3vw;
     flex-direction:column;
-    background-color:grey;
+    background-color:black;
     padding-top:${({paddingTop})=>paddingTop?paddingTop:0};
     z-index:-1;
     overflow: hidden;
@@ -37,7 +37,7 @@ export const HeroButton = styled.button`
     border-radius:50px;
     border-color:transparent;
     margin-top:5vh;
-    background-color:white;
+    background-color:black;
     font-size:1.2vw;
     font-weight:-100;
     @media (max-width:868px){

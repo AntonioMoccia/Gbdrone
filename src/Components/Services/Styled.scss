@@ -7,6 +7,8 @@ body{
     align-items: center;
     flex-direction: column;
     padding-top: 17%;
+    background-color: black;
+    color:white;
     @media (max-width:868px) {
         justify-content: flex-start;
         align-items: flex-start;
@@ -32,7 +34,7 @@ body{
         }
         .prev-button,.next-button{
             font-size:1.7em;
-            color: black;
+            color: white;
             cursor: pointer;
         }
     }
@@ -76,7 +78,7 @@ body{
         @media (max-width:868px){
             width: 90%;
             justify-content: center;
-            color:black;
+            color:white;
             margin-left: 2%;
         }
     }

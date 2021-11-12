@@ -9,12 +9,12 @@ export const SectionHome=styled.div`
     margin-top: 5%;
     margin-bottom: 5%;
     flex-direction:column;
-    background-color:white;
+    background-color:black;
     text-align: center;
         @media (max-width:868px){
             width: 100%;
             justify-content: flex-start;
-            color:black;
+            color:white;
   
         }
     

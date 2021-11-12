@@ -3,7 +3,8 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  
+  background-color: black;
+  color: white;
     @media (max-width:868px) {
         justify-content: flex-start;
         align-items: flex-start;

@@ -12,6 +12,9 @@ import BlockContent from '@sanity/block-content-to-react'
 import {Client} from '../Client'
 const Wrapper = styled.div`
     overflow-x:hidden;
+    background-color:black;
+    color:white;
+
 `
 const serialize={
     marks: {
@@ -20,6 +23,7 @@ const serialize={
 }
 function Home() {
     const [response,setResponse] = useState([])
+
     useEffect(async()=>{
         let query=`*[_type == $type]{
             Frase,
@@ -61,16 +65,13 @@ function Home() {
     variants={Animation} 
     transition={transition}
     >
-        <div style={{
-            height:'100vh'
-        }}>
+
     <Hero 
         media={response.media} 
         text={<BlockContent blocks={response.HeroText} serializers={serialize}/>} 
         buttonText={response.ButtonText}
         parallaxActive={response.parallax}
     />
-    </div>
         <Avatar image={response?.avatar?.url} />
             {/*<SectionVideoHome url={response.Video?.url} />*/}
         <SectionHome frase={<BlockContent blocks={response.Frase} serializers={serialize} />} />

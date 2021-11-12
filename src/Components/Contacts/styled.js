@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const ContactWrapper = styled.div`
     height:auto;
     width: 100vw;
-    background-color: white;
+    background-color: black;
     display:flex;
     align-items: center;
     justify-content: space-between;
@@ -16,12 +16,12 @@ export const SingleContact=styled.div`
         min-height:10vh;
         margin-top:5%;
         width: 80%;
-        background-color: white;
+        background-color: black;
         display: flex;
         justify-content:flex-start;
         padding-left: 10%;
         align-items: center;
-        color:black;
+        color:white;
         font-size:3vw;
         svg{
             margin-right: 10%;
@@ -32,7 +32,7 @@ export const SingleContact=styled.div`
     `
     export const Mail = styled.a`
         text-decoration: none;
-        color: black;
+        color: white;
     `
     export const Map = styled.div`
         height: auto;

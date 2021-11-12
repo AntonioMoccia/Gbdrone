@@ -2,20 +2,18 @@
 
     display: flex;
     justify-content: center;
-    max-height: 30%;
-    margin: 10% 0;
-    @media (max-width:868px) {
-        margin: 10% 10%;
-    }
+        min-height: 40%;
+
     .image{
         border-style: solid;
         border-color: black;
         border-width: 2px;
     }
     img{
-        height: 30vh;
+        margin-top: 30%;
+        height: 60vh;
         @media (max-width:868px) {
-            height: 30vh;
+            height: 40vh;
         }
     }
 }

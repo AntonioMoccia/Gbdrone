@@ -4,7 +4,7 @@ export const FooterContainer = styled.div`
     height:30vh;
     width:100vw;
 
-    background-color:white;
+    background-color:black;
     display:flex;
     justify-content:center;
     align-items:center;
@@ -27,7 +27,7 @@ export const Icon = styled.div`
 `
 export const LinkSocial = styled.a`
     text-decoration: none;
-    color:black;
+    color:white;
     @media (max-width:868px){
         margin-right: 5%;
     }

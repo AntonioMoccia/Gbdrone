@@ -4,6 +4,8 @@
     justify-content: center;
     align-items: center;
     margin-top: 0%;
+    background-color: black;
+    color:white;
     .media-about{
        margin-top: 25vh;
         img{
@@ -31,7 +33,7 @@
         @media (max-width:868px){
             width: 90%;
             justify-content: center;
-            color:black;
+            color:white;
             margin-left: 2%;
         }
     }

@@ -10,7 +10,7 @@ Nav,
 MenuIcon
 } from './Styled'
 import {NavDropdown} from 'react-bootstrap'
-import LogoNero from '../../img/LogoNero.png'
+import LogoNero from '../../img/LogoBianco.png'
 function Menu({services}) {
 const [isOpened,setIsOpened]=useState(false)
 const [isFixed,setIsFixed]=useState(false)
@@ -86,7 +86,8 @@ ref={menuRef}
                             id="nav-dropdown-dark-example"
                             title="SERVIZI"
                             menuVariant="white"
-                            color='black'
+                            color='white'
+                            className='navdropdown'
             >
                 <div className='inner-drop-down'>
                     {

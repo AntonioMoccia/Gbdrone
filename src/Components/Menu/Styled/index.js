@@ -3,13 +3,15 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 
 export const LinkMenu =styled(Link)`
-    color:black;
+    color:white;
     text-transform:uppercase;
     text-decoration:none;
-    
+    &:hover{
+        color:black
+    }
 `
 export const Logo =styled(Link)`
-    color:black;
+    color:white;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -25,14 +27,14 @@ export const Logo =styled(Link)`
 
 export const Nav =styled.nav`
 
-    height:12vh;
-    min-height:100px;
+    height:10vh;
+    min-height:90px;
     width:${({isFixed})=>{return isFixed==true? '100vw': '80vw'}} ;
     margin-left:${({isFixed})=>{return isFixed==true? 0: '10vw'}} ;
     margin-top:${({isFixed})=>{return isFixed==true? 0: '10vh'}} ;
     display:flex;
     justify-content:space-between;
-    background-color:rgba(255,255,255,1);
+    background-color:black;
     padding-right:5vw;
     padding-left:5vw;
     position: ${({isFixed})=>{return isFixed==true? 'fixed': 'absolute'}} ;
@@ -46,10 +48,22 @@ export const Nav =styled.nav`
         margin-top:0;
         position:fixed;
     }
+
+    .hUtUaJ .nav-list-link a:hover {
+    color: black;
+
+}
     .inner-drop-down{
         display:flex;
         flex-direction:column;
         color:black;
+        a{
+            color:black;
+                background-color:white;
+                &:hover{
+                    color:black;
+                }
+        }
         @media (max-width:868px){
 
         }
@@ -63,9 +77,9 @@ export const Nav =styled.nav`
         padding-right:10vw;
         align-content:center;
             padding-top:2%;
-            color:black;
+            color:white;
         @media (max-width:868px){
-                background-color:white;
+                background-color:black;
                 width:60vw;
                 height:100vh;
                 position:absolute;
@@ -93,10 +107,11 @@ export const Nav =styled.nav`
                     height:100%;
                     display:flex;
                     justify-content:center;
-                    color:black;
+                    color:white;
                     text-transform:uppercase;
                     &:hover{
                      transform:scale(1.1);
+                     color:white
             }
             @media (max-width:868px){
                 padding-bottom:1vh
@@ -117,7 +132,7 @@ export const MenuIcon=styled.div`
                         right:3.5vw;
                         display:flex;
                         align-items:center;
-                        color:black;
+                        color:white;
                         font-size:30px;
                         z-index:100;
                 }
@@ -138,9 +153,9 @@ export const ContactButton = styled(Link)`
         font-size:18px;
     }
     &:hover{
-        background-color:white;
+        background-color:black;
         p{
-            color:black;
+            color:white;
         }
     }
 

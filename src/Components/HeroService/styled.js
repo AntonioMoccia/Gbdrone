@@ -4,7 +4,7 @@ import styled from 'styled-components'
 export const HeroService_Wrapper_FotoLefth=styled.div`
     height:70vh;
     width:100vw;
-    background-color:white;
+    background-color:black;
     display:flex;
     align-content:center;
     justify-content:space-around;
@@ -21,7 +21,7 @@ export const HeroService_Wrapper_FotoLefth=styled.div`
         margin-top:5%;
         flex-direction:column;
         justify-content:space-around;
-        background-color:white;
+        background-color:black;
         height:auto;
 
         img{
@@ -38,7 +38,7 @@ export const HeroService_Wrapper_FotoLefth=styled.div`
 export const HeroService_Text_FotoLefth=styled.div` 
  
         max-width:50%;
-        background-color:white;
+        background-color:black;
         display:flex;
         align-items:flex-start;
         align-content:flex-start;
