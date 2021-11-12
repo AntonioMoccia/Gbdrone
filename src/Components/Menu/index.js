@@ -106,7 +106,13 @@ ref={menuRef}
                     </div>
             </NavDropdown>
             </li>
-
+            <li>
+                    <LinkMenu to="/about" onClick={()=>{
+                        setIsOpened(false)
+                    }}>
+                    <p className='nav-link'>Chi sono</p>
+                    </LinkMenu>
+                </li>
                 <li>
                     <LinkMenu to="/contact" onClick={()=>{
                         setIsOpened(false)
@@ -114,13 +120,7 @@ ref={menuRef}
                     <p className='nav-link'>Contattami</p>
                     </LinkMenu>
                 </li>
-                <li>
-                    <LinkMenu to="/about" onClick={()=>{
-                        setIsOpened(false)
-                    }}>
-                    <p className='nav-link'>Chi sono</p>
-                    </LinkMenu>
-                </li>
+
             </ul>
 
 
