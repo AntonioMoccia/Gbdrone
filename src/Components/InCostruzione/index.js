@@ -1,7 +1,7 @@
 import React from 'react'
 import {Container} from '../InCostruzione/styled'
 import {Logo} from '../Menu/Styled'
-import LogoNero from '../../img/LogoNero.png'
+import LogoNero from '../../img/LogoBianco.png'
 function index() {
 
     return (

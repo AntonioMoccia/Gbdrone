@@ -84,8 +84,8 @@ export const Nav =styled.nav`
                 height:100vh;
                 position:absolute;
                 flex-direction:column;
-                padding-top:10vh;
-                padding-bottom:10vh;
+                padding-top:20vh;
+                padding-bottom:20vh;
                 justify-content:center;
                 right:0;
                 top:0;

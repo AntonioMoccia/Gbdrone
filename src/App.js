@@ -10,7 +10,7 @@ import './App.css';
 import Footer from './Components/Footer'
 import Whatsapp from './Components/Whatsapp'
 import {Client} from './Client.js'
-import ASScroll from '@ashthornton/asscroll'
+
 import InCostruzionePage from './Pages/InCostruzione'
 import About from './Pages/About';
 
@@ -20,7 +20,10 @@ function App() {
 const location=useLocation()
 useEffect(()=>{ 
   console.log('Powered by Antonio Moccia')
-
+  
+  Client.fetch('*[_type=="HomePage"]{InCostruzione}').then(e=>{
+    setInCostruzione(e[0].InCostruizone)
+  })
        let params = {type: 'Services'}
        let query = `*[_type == $type]`
      Client.fetch(query,params).then(res=>{
@@ -34,13 +37,16 @@ useEffect(()=>{
   return (
     <>
 
-    <AnimatePresence exitBeforeEnter>
-  <Menu services={servizi}/>
+  {
+    InCostruzione == false && <Menu services={servizi}/>
+  }
     <Whatsapp />
+    <AnimatePresence exitBeforeEnter>
 
       <Switch location={location} key={location.pathname}>
       {
-        <>
+        InCostruzione == false?(
+          <>
           <Route path="/" component={Home} exact/>
           
           {
@@ -51,6 +57,10 @@ useEffect(()=>{
           <Route path="/contact" component={Contact} exact />
           <Route path="/about" component={About} exact />
         </>
+        ):(
+          <InCostruzionePage />
+        )
+
         
       }
       

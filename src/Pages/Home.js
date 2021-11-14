@@ -10,7 +10,7 @@ import Avatar from '../Components/sectionAvatar'
 
 import BlockContent from '@sanity/block-content-to-react'
 import {Client} from '../Client'
-import ASScroll from '@ashthornton/asscroll'
+
 const Wrapper = styled.div`
     overflow-x:hidden;
     background-color:black;
