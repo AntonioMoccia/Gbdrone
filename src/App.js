@@ -10,9 +10,10 @@ import './App.css';
 import Footer from './Components/Footer'
 import Whatsapp from './Components/Whatsapp'
 import {Client} from './Client.js'
-
+import ASScroll from '@ashthornton/asscroll'
 import InCostruzionePage from './Pages/InCostruzione'
 import About from './Pages/About';
+
 function App() {
   const [InCostruzione,setInCostruzione] = useState(false)
   const [servizi,setServizi] = useState([])
@@ -27,14 +28,16 @@ useEffect(()=>{
 
      })
 
+     
     },[])
 
   return (
     <>
 
+    <AnimatePresence exitBeforeEnter>
   <Menu services={servizi}/>
     <Whatsapp />
-    <AnimatePresence exitBeforeEnter>
+
       <Switch location={location} key={location.pathname}>
       {
         <>
@@ -53,9 +56,10 @@ useEffect(()=>{
       
 
       </Switch>
+
     </AnimatePresence>
     <Footer />
-
+ 
 
 </>
   );
