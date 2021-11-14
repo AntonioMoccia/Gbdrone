@@ -38,14 +38,14 @@ useEffect(()=>{
     <>
 
   {
-    InCostruzione == false && <Menu services={servizi}/>
+    InCostruzione == false ? (<Menu services={servizi}/>):(null)
   }
     <Whatsapp />
     <AnimatePresence exitBeforeEnter>
 
       <Switch location={location} key={location.pathname}>
       {
-        InCostruzione == false?(
+        InCostruzione == false ? (
           <>
           <Route path="/" component={Home} exact/>
           
@@ -58,7 +58,7 @@ useEffect(()=>{
           <Route path="/about" component={About} exact />
         </>
         ):(
-          <InCostruzionePage />
+          <Route path="*" component={InCostruzionePage} exact />
         )
 
         
