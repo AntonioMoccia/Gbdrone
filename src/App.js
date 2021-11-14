@@ -18,53 +18,50 @@ function App() {
   const [InCostruzione,setInCostruzione] = useState(false)
   const [servizi,setServizi] = useState([])
 const location=useLocation()
-useEffect(()=>{ 
+
+useEffect( ()=>{ 
   console.log('Powered by Antonio Moccia')
   
   Client.fetch('*[_type=="HomePage"]{InCostruzione}').then(e=>{
-    setInCostruzione(e[0].InCostruizone)
+setInCostruzione(e[0].InCostruzione)
+    let params = {type: 'Services'}
+    let query = `*[_type == $type]`
+  Client.fetch(query,params).then(res=>{
+    setServizi(res)
   })
-       let params = {type: 'Services'}
-       let query = `*[_type == $type]`
-     Client.fetch(query,params).then(res=>{
-       setServizi(res)
 
-     })
+  })
 
      
     },[])
-
+useEffect(()=>{
+  console.log(InCostruzione)
+})
   return (
-    <>
-
-  {
-    InCostruzione == false ? (<Menu services={servizi}/>):(null)
-  }
+    <>  
     <Whatsapp />
+  {
+    InCostruzione == false ? (<Menu services={servizi} />):(null)
+  }
     <AnimatePresence exitBeforeEnter>
 
       <Switch location={location} key={location.pathname}>
-      {
-        InCostruzione == false ? (
-          <>
-          <Route path="/" component={Home} exact/>
-          
-          {
-            servizi?.map(servizio=>(
-              <Route key={servizio._id} path={`/${servizio.slug.current}`} component={Servizio} exact />    
-            ))
-          }
-          <Route path="/contact" component={Contact} exact />
-          <Route path="/about" component={About} exact />
-        </>
-        ):(
-          <Route path="*" component={InCostruzionePage} exact />
-        )
-
+    {
+      InCostruzione == false ? (          <>
+        <Route path="/" component={Home} exact/>
         
-      }
-      
-
+        {
+          servizi?.map(servizio=>(
+            <Route key={servizio._id} path={`/${servizio.slug.current}`} component={Servizio} exact />    
+          ))
+        }
+        <Route path="/contact" component={Contact} exact />
+        <Route path="/about" component={About} exact />
+      </>
+      ):(
+        <Route path="*" component={InCostruzionePage} exact />
+      )
+    }
       </Switch>
 
     </AnimatePresence>
