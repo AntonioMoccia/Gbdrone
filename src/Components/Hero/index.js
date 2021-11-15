@@ -51,7 +51,7 @@ media && (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
 
-       <video className='video-hero' autoPlay muted loop playsInline>
+       <video className='video-hero' autoPlay={'true'} muted loop playsInline>
          <source src={media[0]?.url} />
        </video>
 
