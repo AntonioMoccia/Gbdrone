@@ -61,12 +61,7 @@ function Home() {
 
     <Wrapper>
           
-    <motion.div 
-    initial='out' 
-    animate='in'
-    variants={Animation} 
-    transition={transition}
-    >
+    <div>
 
     <Hero 
         media={response.media} 
@@ -77,7 +72,7 @@ function Home() {
         <Avatar image={response?.avatar?.url} />
             {/*<SectionVideoHome url={response.Video?.url} />*/}
         <SectionHome frase={<BlockContent blocks={response.Frase} serializers={serialize} />} />
-    </motion.div>
+    </div>
     </Wrapper>
 
    )

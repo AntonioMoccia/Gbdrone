@@ -42,6 +42,10 @@ useEffect(()=>{
         Client.fetch(query,parametri).then(result=>{
        
             setRisultato(result[0])
+            if(result[0]?.gallery?.media?.length<1 || result[0].gallery == undefined ){
+                document.querySelector('.swiper-wrapper-container').style.display='none'
+                document.querySelector('.buttons-swiper').style.display='none'
+            }
         })  
 },[location.pathname])
 const serialize={

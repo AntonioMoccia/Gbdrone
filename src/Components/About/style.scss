@@ -17,8 +17,10 @@
                 margin-left: 5vw;
             }
         }
-            
-    }
+            @media (max-width:868px) {
+                margin-top: 10vh;
+            }    
+    }   
     .text-about{
         width: 60%;
         height: auto;
