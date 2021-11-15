@@ -37,7 +37,15 @@ function Index({media, text, buttonText,parallaxActive}) {
 
         },[media,scrollY])
 
+        const video = document.querySelector('.video-hero')
+        useEffect(()=>{
 
+          if(video){
+            video.play()
+            video.controls=false
+          }
+
+        },[video])
       return (
 <>
 {
@@ -51,7 +59,7 @@ media && (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
 
-       <video src={media[0]?.url}  className='video-hero' muted playsInline autoPlay loop >
+       <video src={media[0]?.url}  className='video-hero' muted playsInline loop >
 
        </video>
 
