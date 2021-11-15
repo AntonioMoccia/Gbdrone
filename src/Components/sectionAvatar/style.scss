@@ -3,7 +3,9 @@
     display: flex;
     justify-content: center;
         min-height: 40%;
-
+    @media (max-width:868px) {
+        margin-top: -8vh;
+    }
     .image{
         border-style: solid;
         border-color: black;
