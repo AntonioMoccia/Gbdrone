@@ -42,7 +42,7 @@ function Index({contact}) {
                 </SingleContact>
                 <SingleContact>
                     <h1 style={{
-                        fontSize:'3vw',
+                        fontSize:'6vw',
                         marginRight:'10%'
                     }}>P.I.</h1>
                   {contact?.PI}

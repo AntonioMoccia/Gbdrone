@@ -22,6 +22,9 @@ function Index({media, text, buttonText,parallaxActive}) {
                 image.style.Height = '105vh'
               }
           }else{
+            const video = document.querySelector('#video-hero-id')
+
+
           }
 
         },[media])
@@ -37,15 +40,6 @@ function Index({media, text, buttonText,parallaxActive}) {
 
         },[media,scrollY])
 
-        const video = document.querySelector('.video-hero')
-        useEffect(()=>{
-
-          if(video){
-            video.play()
-            video.controls=false
-          }
-
-        },[video])
       return (
 <>
 {
@@ -59,8 +53,8 @@ media && (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
 
-       <video src={media[0]?.url}  className='video-hero' muted playsInline loop >
-
+       <video id='video-hero-id' className='video-hero' autoPlay loop muted  playsInline  >
+         <source src={media[0]?.url} />
        </video>
 
      )
