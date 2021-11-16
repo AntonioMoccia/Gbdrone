@@ -24,8 +24,12 @@ function Index({media, text, buttonText,parallaxActive}) {
           }else{
             const video = document.querySelector('#video-hero-id')
             if(video){
-              video.play()
-            }
+              window.onload=()=>{
+                video.click()
+                video.play()
+                console.log(video)
+              }
+             }
           }
 
         },[media])
