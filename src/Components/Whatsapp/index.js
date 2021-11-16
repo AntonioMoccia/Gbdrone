@@ -16,7 +16,7 @@ const Whatsapp = ()=>{
         },[])
     return(
         <WhatsappWrapper>
-        <WhatsAppWidget textReplyTime='' phoneNumber = {`+39 ${contact.numeroTelefono}`} placeholder='Inserisci il messaggio' companyName='Gbdrone' message='Ciao! 👋🏼  Come posso aiutarti?' sendButton='Invia'/>
+        <WhatsAppWidget textReplyTime='' phoneNumber = {`+39 ${contact.numeroTelefono}`} placeholder='Inserisci il messaggio' companyName='GBdrone' message='Ciao! 👋🏼  Come posso aiutarti?' sendButton='Invia'/>
         </WhatsappWrapper>
     )
 }
