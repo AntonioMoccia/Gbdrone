@@ -37,13 +37,11 @@ useEffect(()=>{
 },[location.pathname])
 window.addEventListener('wheel',(e)=>{
     Operation()
-    if(document.querySelector('.dropdown-menu').classList.contains('show')){
-        document.querySelector('.dropdown-menu').classList.remove('show')
-    }
+
 })
 window.addEventListener('scroll',(e)=>{
     Operation()
-    if(document.querySelector('.dropdown-menu').classList.contains('show')){
+    if(document.querySelector('.dropdown-menu') && document.querySelector('.dropdown-menu').classList.contains('show')){
         document.querySelector('.dropdown-menu').classList.remove('show')
     }
 })

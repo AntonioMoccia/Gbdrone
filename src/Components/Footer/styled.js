@@ -13,7 +13,7 @@ export const FooterContainer = styled.div`
 `;
 
 export const Icon = styled.div`
-    color:black;
+    color:white;
     font-size:2.5vw;
     width:10%;
     display:flex;
@@ -28,6 +28,9 @@ export const Icon = styled.div`
 export const LinkSocial = styled.a`
     text-decoration: none;
     color:white;
+    &:hover{
+        color:white;
+    }
     @media (max-width:868px){
         margin-right: 5%;
     }
