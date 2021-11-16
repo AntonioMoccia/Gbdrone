@@ -24,7 +24,7 @@ function Index({media, text, buttonText,parallaxActive}) {
           }else{
             const video = document.querySelector('#video-hero-id')
             if(video){
-              video.play()
+           //   video.play()
             }
           }
 
@@ -54,7 +54,7 @@ media && (
        <img className='image-hero' src={media[0]?.url}/>
      ) : (
 
-       <video id='video-hero-id' className='video-hero' loop muted  playsInline  >
+       <video id='video-hero-id' className='video-hero' autoPlay aut loop muted  playsInline  >
          <source src={media[0]?.url} />
        </video>
 

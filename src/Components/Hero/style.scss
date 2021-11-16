@@ -15,6 +15,9 @@
         img, video{
             width: 100vw;
             min-height: 100vh;
+            position: absolute;
+            top:0;
+            left: 0;
             @media (max-width:868px) {
                 padding: 0% 2%;
                 padding-top: 10%;
