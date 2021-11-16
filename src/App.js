@@ -34,9 +34,6 @@ setInCostruzione(e[0].InCostruzione)
 
      
     },[])
-useEffect(()=>{
-  console.log(InCostruzione)
-})
   return (
     <>  
     <Whatsapp />
