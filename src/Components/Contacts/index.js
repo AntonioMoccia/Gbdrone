@@ -41,16 +41,13 @@ function Index({contact}) {
             </Mail>
                 </SingleContact>
                 <SingleContact>
-                    <h1 style={{
-                        fontSize:'6vw',
-                        marginRight:'10%'
-                    }}>P.I.</h1>
+                    <h1 className='partita-iva'>P.I.</h1>
                   {contact?.PI}
                 </SingleContact>
             </ContactWrapper>
             <div className='form-wrapper'>
                 <div className='form-title'>
-                    Contattaci!
+                    Contattami!
                 </div>
                     <Form />
             </div>

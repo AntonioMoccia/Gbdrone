@@ -8,7 +8,9 @@
     @media (max-width:868px) {
         justify-content: flex-start;
         align-items: flex-start;
+        
     }
+
     .image-contact{
         display: flex;
         justify-content: center;
@@ -37,5 +39,12 @@
         justify-content: center;
         align-items: center;
         width: 100%;
+    }
+}
+.partita-iva{
+    font-size:3vw;
+    margin-right:10%;
+    @media (max-width:868px) {
+        font-size: 5vw;
     }
 }
