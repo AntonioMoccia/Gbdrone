@@ -9,8 +9,8 @@ import Hero from '../Components/Hero'
 import Avatar from '../Components/sectionAvatar'
 
 import BlockContent from '@sanity/block-content-to-react'
+import Video from '../Video/video_rocca.m4v'
 import {Client} from '../Client'
-
 const Wrapper = styled.div`
     overflow-x:hidden;
     background-color:black;
@@ -29,10 +29,7 @@ function Home() {
         let query=`*[_type == $type]{
             Frase,
             InCostruzione,
-            Video{
-                _type,
-              "url":asset->url
-            },
+
             _createdAt,
             _id,
             _rev,
@@ -43,10 +40,6 @@ function Home() {
               "url":asset->url
             },
             h1,
-            media[]{
-             _type,
-            "url":asset->url
-             },
             parallax
             }`
         let params={type: 'HomePage'}
@@ -63,7 +56,7 @@ function Home() {
     <div>
 
     <Hero 
-        media={response.media} 
+        media={Video} 
         text={<BlockContent blocks={response.HeroText} serializers={serialize}/>} 
         buttonText={response.ButtonText}
         parallaxActive={response.parallax}

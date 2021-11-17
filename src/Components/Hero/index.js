@@ -49,17 +49,10 @@ media && (
     <div className='hero-wrapper'>
 
 
-  {
-     media && media[0]?._type=="image" ? (
-       <img className='image-hero' src={media[0]?.url}/>
-     ) : (
 
        <video id='video-hero-id' className='video-hero' autoPlay loop muted={true} playsInline  >
-         <source src={media[0]?.url} />
+         <source src={media} />
        </video>
-
-     )
-   }
      <TextHero  parallax={scrollY}>{text}</TextHero>
 
 {
