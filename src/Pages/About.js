@@ -1,43 +1,25 @@
-import React,{useEffect, useState} from "react";
-import {Client,builder} from '../Client'
+import React from "react";
 import AboutComponent from '../Components/About'
 import {Animation,transition} from '../Animations'
 import {motion} from 'framer-motion'
+import {useSelector} from 'react-redux'
 function About(){
-const [risultato,setRisultato] = useState([])
 
-    useEffect(()=>{
-
-      const query = `*[_type == "AboutPage"]{
-        _createdAt,
-        _id,
-        _rev,
-        _type,
-        _updatedAt,
-           media[]{
-                  _type,
-               "url":asset->url
-            },
-        text,
-        titolo
-        }`
-
-      Client.fetch(query).then(res=>{
-        setRisultato(res)
-
-      })
-    },[])
-
+  const about = useSelector(state=>state.about)
 
 return(
     <>
         <motion.div 
-    initial='out' 
-    animate='in'
-    variants={Animation} 
-    transition={transition}
-    >
-    <AboutComponent result={risultato} />
+          initial='out' 
+          animate='in'
+          variants={Animation} 
+          transition={transition}
+          >
+          
+{
+ about.loaded && <AboutComponent result={about.data} />
+
+}
     </motion.div>
      </>
 )

@@ -10,5 +10,5 @@ export const Animation={
 
 
 export const transition ={
-    duration:0.9
+    duration:0.4
 }

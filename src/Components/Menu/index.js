@@ -55,15 +55,14 @@ window.addEventListener('scroll',(e)=>{
     setIsOpened(false)
 }}>
     <motion.div
-
-        animate={isFixed?{
-            y:0,
-            opacity: 1,
-            width: '100vw'
-        }:{}}
-        transition={{
-            duration:10
-        }}
+            animate={isFixed?{
+                y:0,
+                opacity: 1,
+                width: '100vw'
+            }:{}}
+            transition={{
+                duration:10
+            }}
     >
 <Nav 
 isOpened={isOpened} 
@@ -103,14 +102,14 @@ ref={menuRef}
             >
                 <div className='inner-drop-down'>
                     {
-                        services.map(serve=>(
-                            <LinkMenu key={serve.slug.current} to={`${serve.slug.current}`} onClick={()=>{
-                        setIsOpened(false)
+                        services.body[0].items.map(serve=>(
+                            <LinkMenu key={serve.servizio.id} to={`${serve.servizio.uid}`} onClick={()=>{
+                                setIsOpened(false)
                                     if(document.querySelector('.dropdown-menu').classList.contains('show')){
                                         document.querySelector('.dropdown-menu').classList.remove('show')
                                     }
                     }}>
-                                {serve.title}
+                                {serve.servizio.slug}
                             </LinkMenu>
 
                         ))

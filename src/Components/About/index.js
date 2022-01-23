@@ -1,32 +1,19 @@
-import React,{useEffect} from 'react'
-import BlockContent from '@sanity/block-content-to-react'
+import React from 'react'
+
+import {PrismicRichText} from '@prismicio/react'
+
 import './style.scss'
-
-const serialize={
-    marks: {
-        color: props => <span style={{color:props.mark.hex}}>{props.children}</span>
-    }
-}
-
 
 function AboutComponent({result}){
 
     return(
         <div className='wrapper-about'>
-            <div className='media-about'>
-                {
-                            result[0]?.media[0]?._type=='image'?(
-                                <img src={result[0]?.media[0]?.url} />     
-                                 ):(
-                                     <video>
-                                         <source src={result[0]?.media[0]?.url} />
-                                     </video>
-                                 )
-                }
-            </div>
-            <div className='text-about'>
-                <BlockContent blocks={result[0]?.text} serializers={serialize} />
-            </div>
+                    <div className='media-about'>
+                        <img src={result.img_about.url} />  
+                    </div>
+                    <div className='text-about'>
+                        <PrismicRichText field={result.testo_abut} />
+                    </div>
         </div>
     )
 }

@@ -5,16 +5,14 @@ import {FaRegArrowAltCircleRight, FaRegArrowAltCircleLeft} from 'react-icons/fa'
 import 'swiper/swiper.scss'
 //import 'swiper/components/navigation/navigation.scss'
 import './swiper.css'
-import img1 from '../../img/1.jpeg'
-//import img2 from '../../img/2.jpg'
-//import img3 from '../../img/3.jpg'
+
 import styled from 'styled-components'
 import Hero from '../Hero'
 
 SwiperCore.use([Navigation, Parallax])
 
 const images=[
-    img1
+    
 ]
 
 

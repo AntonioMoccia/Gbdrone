@@ -1,72 +1,64 @@
 import React,{useEffect,useState} from 'react'
-import {BrowserRouter,Route,Switch, useLocation} from 'react-router-dom'
+import {Route,Switch, useLocation} from 'react-router-dom'
 import Home from './Pages/Home';
 import Contact from './Pages/Contact';
-import Servizi from './Pages/Servizi';
-  import Servizio from './Components/Services'
+import Servizio from './Components/Services'
 import Menu from './Components/Menu'
 import {AnimatePresence} from 'framer-motion'
 import './App.css';
 import Footer from './Components/Footer'
 import Whatsapp from './Components/Whatsapp'
-import {Client} from './Client.js'
 
-import InCostruzionePage from './Pages/InCostruzione'
+import {client} from './prismic'
+
 import About from './Pages/About';
+import {isEmpty} from 'lodash'
+import {useDispatch,useSelector} from 'react-redux'
+import {getHomeData} from './redux/Home/homeSlice'
+import { getContactData  } from "./redux/Contact/contactSlice";
+import {getAboutData} from "./redux/About/aboutSlice"
+import {getServicesData,getLabels} from './redux/Services/servicesSlice'
+import './style/index.scss'
 
 function App() {
-  const [InCostruzione,setInCostruzione] = useState(false)
   const [servizi,setServizi] = useState([])
-const location=useLocation()
+  const location=useLocation()
+  const dispatch = useDispatch()
 
-useEffect( ()=>{ 
-  console.log('Powered by Antonio Moccia')
   
-  Client.fetch('*[_type=="HomePage"]{InCostruzione}').then(e=>{
-setInCostruzione(e[0].InCostruzione)
-    let params = {type: 'Services'}
-    let query = `*[_type == $type]`
-  Client.fetch(query,params).then(res=>{
-    setServizi(res)
-  })
 
-  })
+  useEffect( async ()=>{ 
 
-     
-    },[])
+    dispatch(getHomeData())
+    dispatch(getContactData())
+    dispatch(getAboutData())
+    var res = await client.getSingle('services')
+    setServizi(res.data)     
+  },[])
+
   return (
-    <>  
-
-    <Whatsapp />
-  {
-    InCostruzione == false ? (<Menu services={servizi} />):(null)
+    <div className='wrapper-page'> 
+<Whatsapp />
+    {
+      isEmpty(servizi) ? null : <Menu services={servizi} />
   }
     <AnimatePresence exitBeforeEnter>
-
-      <Switch location={location} key={location.pathname}>
-    {
-      InCostruzione == false ? (          <>
+      <Switch location={location} key={location.pathname}>  
         <Route path="/" component={Home} exact/>
-        
         {
-          servizi?.map(servizio=>(
-            <Route key={servizio._id} path={`/${servizio.slug.current}`} component={Servizio} exact />    
-          ))
+          isEmpty(servizi) ? null : servizi.body[0]?.items?.map(servizio=>(
+               <Route key={servizio.servizio.id} path={`/${servizio.servizio.uid}`} component={Servizio} exact />    
+             ))
         }
         <Route path="/contact" component={Contact} exact />
         <Route path="/about" component={About} exact />
-      </>
-      ):(
-        <Route path="*" component={InCostruzionePage} exact />
-      )
-    }
-      </Switch>
+     </Switch>
 
     </AnimatePresence>
     <Footer />
  
 
-</>
+</div>
   );
 }
 

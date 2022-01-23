@@ -8,8 +8,7 @@ export const FooterContainer = styled.div`
     display:flex;
     justify-content:center;
     align-items:center;
-    position:relative;
-
+    position:absolute;
 `;
 
 export const Icon = styled.div`

@@ -4,7 +4,7 @@ import VideoSrc from '../../Video/video.mp4'
 function index({url}) {
     return (
         <VideoWrapper>
-        <Video src={url} controls />
+            <Video src={url} controls />
         </VideoWrapper>
     )
 }

@@ -1,27 +1,27 @@
-import React,{useEffect,useState} from 'react'
+import React from 'react'
 import {FooterContainer, Icon, LinkSocial} from './styled'
-import {FaInstagram, FaFacebook, FaWhatsapp} from 'react-icons/fa'
-import {Client} from '../../Client'
+import {FaInstagram, FaFacebook} from 'react-icons/fa'
+import {useSelector} from 'react-redux'
 function Index() {
-    const [contact,setContact]=useState([])
-    useEffect(()=>{
-        const query=`*[_type == $type]`
-        const params={type: 'ContactPage'}
-        Client.fetch(query,params).then(res=>{
-            setContact(res[0])
-        })
-    },[])
+    const social = useSelector(state=>state.contact)
+
     return (
-        <FooterContainer>
-            <Icon>
-        <LinkSocial href={contact.Instagram}>
-            <FaInstagram />
-            </LinkSocial>
-            <LinkSocial href={contact.Facebook}>
-            <FaFacebook />
-            </LinkSocial>
-            </Icon>
-        </FooterContainer>
+        <>
+        {
+            social.loaded && (
+                <FooterContainer>
+                    <Icon>
+                        <LinkSocial href={social.data.instagram.url}>
+                            <FaInstagram />
+                        </LinkSocial>
+                        <LinkSocial href={social.data.facebook.url}>
+                            <FaFacebook />
+                        </LinkSocial>
+                    </Icon>
+                </FooterContainer>
+            )
+        }
+        </>
     )
 }
 

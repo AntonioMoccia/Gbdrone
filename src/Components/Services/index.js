@@ -12,41 +12,16 @@ import {motion} from 'framer-motion'
 import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import './Styled.scss'
-
+import { client } from '../../prismic';
+import {PrismicRichText} from '@prismicio/react'
+import {isEmpty} from 'lodash'
 function Index() {
 const location = useLocation()
 const [risultato,setRisultato] = useState({})
-useEffect(()=>{
-  
-    let query = `*[_type=='Services' && slug.current==$slug]{
-        _createdAt,
-        _id,
-        _rev,
-        _type,
-        _updatedAt,
-        body,
-        gallery{
-          media[]{
-               "url":asset->url,
-            _type
-          }
-        },
-        media[]{
-                _type,
-          "url":asset->url
-        },
-        slug,
-        title
-        }`
-    let parametri={slug:location.pathname.replace('/','')}
-        Client.fetch(query,parametri).then(result=>{
-       
-            setRisultato(result[0])
-            if(result[0]?.gallery?.media?.length<1 || result[0].gallery == undefined ){
-                document.querySelector('.swiper-wrapper-container').style.display='none'
-                document.querySelector('.buttons-swiper').style.display='none'
-            }
-        })  
+useEffect( async ()=>{
+    var uid = location.pathname.replace('/','')
+    var res = await client.getByUID('servizio',uid)
+  setRisultato(res.data)
 },[location.pathname])
 const serialize={
     marks: {
@@ -58,41 +33,34 @@ const serialize={
 
     SwiperCore.use([Navigation,Pagination])
     return (
+  
         <motion.div
         initial='out' 
         animate='in'
         variants={Animation} 
         transition={transition}
         >    
-        <div className='servizio-wrapper'>
-            <div className='image-services'>
-
-            {
-                risultato?.media?.map(media=>(
-                        <>
-                        {
-                            media._type=='image'?(
-                           <img src={media.url} />     
-                            ):(
-                                <video>
-                                    <source src={media.url} />
-                                </video>
-                            )
-                        }
-                        </>
-                ))
-            }
-            
+        {
+            isEmpty(risultato) ? null : (
+                <div className='servizio-wrapper'>
+                <div className='image-services'>
+                    <img src={risultato.img.url} />     
+                </div>
+                <div className='wrapper-frase'>
+                      <PrismicRichText field={risultato.testo_servizio} />
+                </div>
             </div>
-{            /*<h1 className='title-services'>
-                {risultato.title}
-        </h1>*/}
-            <div className='wrapper-frase'>
-            <BlockContent blocks={risultato.body} serializers={serialize}/>
-            </div>
-            <br></br>
+            )
+        }
 
-        <div className='swiper-wrapper-container' onDoubleClick={(e)=>{
+                    </motion.div>
+    )
+
+}
+
+export default Index
+/*
+ <div className='swiper-wrapper-container' onDoubleClick={(e)=>{
             e.preventDefault()
         }} >
             <Swiper
@@ -129,15 +97,5 @@ const serialize={
                     <FiArrowLeftCircle className='prev-button' />
                     <FiArrowRightCircle className='next-button' />
             </div>
-
-        </div>
-                    </motion.div>
-    )
-
-}
-
-export default Index
-/*
-
 
 */
