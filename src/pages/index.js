@@ -1,4 +1,5 @@
-import Layout from '@/components/Layout'
+import Image from 'next/image'
+import Layout from '../components/Layout'
 import Head from 'next/head'
 
 
@@ -12,9 +13,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1 className="text-stone-100">
-        Hello
-      </h1>
+      <section className={` h-full  bg-orange-700`}>
+        <div>
+
+        </div>
+      </section>
+
     </>
 
   )
