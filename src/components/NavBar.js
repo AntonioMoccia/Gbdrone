@@ -1,11 +1,36 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import DropDown from './DropDown'
 import { AiOutlineMenu } from 'react-icons/ai'
-import {useRouter} from 'next/navigation'
+import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import { createClient } from '../prismicio.js'
+
+
+const getServices=async()=>{
+  const client = createClient()
+    const servizi = await client.getSingle('services')
+    return servizi
+  }
+
 function NavBar() {
   const [open, setOpen] = useState(false)
-  const router  = useRouter()
+  const [links, setLinks] = useState([])
+  const router = useRouter()
+
+  useEffect(() => {
+    getServices().then(response=>{
+      //console.log(response.data.body[0].items);
+      const tempArray = response.data.body[0].items.map(item=>{
+        console.log();
+        return {
+          label:item.servizio.slug,
+          href:`/${item.servizio.uid}`
+        }
+      })
+      setLinks(tempArray)
+    })
+
+  }, [])
 
   return (
     <nav className='fixed w-full h-20 bg-black text-white'>
@@ -22,20 +47,7 @@ function NavBar() {
             <li>
               <DropDown
                 onLinkClick={() => setOpen(false)}
-                label={'Servizi'} links={[
-                  {
-                    label: "Wedding",
-                    href: '/wedding'
-                  },
-                  {
-                    label: "Companies",
-                    href: '/companies'
-                  },
-                  {
-                    label: "documentary",
-                    href: '/documentary'
-                  }
-                ]} />
+                label={'Servizi'} links={links} />
             </li>
             <li className='uppercase md:text-sm text-xl'>Contattami</li>
           </ul>

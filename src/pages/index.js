@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import Layout from '../components/Layout'
 import Head from 'next/head'
 
 
 export default function Home() {
+  
   return (
     <>
       <Head>
@@ -15,7 +15,6 @@ export default function Home() {
 
       <section className={` h-full  bg-orange-700`}>
         <div>
-
         </div>
       </section>
 
