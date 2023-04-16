@@ -19,19 +19,19 @@ function DropDown({ label, links, onLinkClick = () => { } }) {
     }, []);
 
     return (
-        <div ref={ref} className='inline-block relative top'>
-            <button onClick={() => setOpenDrop(!openDrop)} className='text-xl md:text-sm cursor-pointer w-full px-0 py-1 uppercase justify-center items-center flex rounded '>
+        <div ref={ref} className='relative'>
+            <button onClick={() => setOpenDrop(!openDrop)} className='text-md cursor-pointer w-full px-0 py-1 uppercase justify-start items-center flex  '>
                 {label}
-                {openDrop ? <IoMdArrowDropup className=' ml-1' size={'15'} /> : <IoMdArrowDropdown className=' ml-1' size={'15'} />}
+                {openDrop ? <IoMdArrowDropup className=' ml-1' size={'18'} /> : <IoMdArrowDropdown className=' ml-1' size={'18'} />}
             </button>
-            <div className={`shadow-md ring-1 ring-gray-200 py-2 origin-center translate-x-[-0%] relative md:absolute bg-black mt-1 md:w-auto w-[80vw] md:min-w-[8rem] rounded ${openDrop ? '' : 'hidden'}`}>
-                <ul className='flex flex-col justify-center'>
+            <div className={`shadow-md py-3 origin-center relative md:absolute bg-white mt-3 md:w-auto w-full md:min-w-[8rem] rounded ${openDrop ? '' : 'hidden'}`}>
+                <ul className='flex flex-col items-start px-4 justify-start space-y-2'>
                     {
                         links.map(({ label, href }) => (
-                            <li className=' text-sm md:text-sm uppercase bg-black text-center py-1 cursor-pointer hover:bg-slate-900 text-white'><Link onClick={() => {
+                            <li className=' capitalize text-md md:text-sm text-center py-1 cursor-pointer text-black'><Link onClick={() => {
                                 setOpenDrop(false)
                                 onLinkClick()
-                            }} href={href}>{label}</Link></li>
+                            }} href={href}>{` ${label}`}</Link></li>
                         ))
                     }
                 </ul>

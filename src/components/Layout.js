@@ -6,7 +6,9 @@ function Layout({ children }) {
         <>
             <main className=" bg-neutral-900 h-screen">
             <NavBar />
+            <div className="pt-24">
                 {children}
+                </div>
             </main>
         </>
     )
