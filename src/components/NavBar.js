@@ -33,7 +33,7 @@ function NavBar() {
   }, [])
 
   return (
-    <nav className='fixed w-full h-24 bg-black text-white'>
+    <nav className='fixed z-50 w-full h-24 bg-black text-white'>
       <div className='flex justify-between  px-6 h-24'>
 
         <div onClick={() => router.push('/')} className=' p-3 h-24 w-20 flex items-center justify-center z-10'>

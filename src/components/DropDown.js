@@ -31,7 +31,7 @@ function DropDown({ label, links, onLinkClick = () => { } }) {
                             <li className=' capitalize text-md md:text-sm text-center py-1 cursor-pointer text-black'><Link onClick={() => {
                                 setOpenDrop(false)
                                 onLinkClick()
-                            }} href={href}>{` ${label}`}</Link></li>
+                            }} href={`/servizi/${href}`}>{` ${label}`}</Link></li>
                         ))
                     }
                 </ul>
