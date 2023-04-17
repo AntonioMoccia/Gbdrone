@@ -6,7 +6,7 @@ function Footer() {
 
     }, [])
     return (
-        <div className='w-screen flex justify-around flex-col items-center bg-black min-h-[8rem] '>
+        <div className='w-full flex justify-around flex-col items-center bg-black min-h-[8rem] '>
             <div className='w-full flex justify-around lg:justify-center items-center text-2xl px-24 '>
                 <BsFacebook color='white' />
                 <BsInstagram color='white' className=' ml-5' />

@@ -20,7 +20,7 @@ function DropDown({ label, links, onLinkClick = () => { } }) {
 
     return (
         <div ref={ref} className='relative'>
-            <button onClick={() => setOpenDrop(!openDrop)} className='text-md cursor-pointer w-full px-0 py-1 uppercase justify-start items-center flex  '>
+            <button onClick={() => setOpenDrop(!openDrop)} className='text-md cursor-pointer w-full px-0 py-1 justify-start items-center flex  '>
                 {label}
                 {openDrop ? <IoMdArrowDropup className=' ml-1' size={'18'} /> : <IoMdArrowDropdown className=' ml-1' size={'18'} />}
             </button>
