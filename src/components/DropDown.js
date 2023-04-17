@@ -24,11 +24,11 @@ function DropDown({ label, links, onLinkClick = () => { } }) {
                 {label}
                 {openDrop ? <IoMdArrowDropup className=' ml-1' size={'18'} /> : <IoMdArrowDropdown className=' ml-1' size={'18'} />}
             </button>
-            <div className={`shadow-md py-3 origin-center relative md:absolute bg-white mt-3 md:w-auto w-full md:min-w-[8rem] rounded ${openDrop ? '' : 'hidden'}`}>
+            <div className={`shadow-md py-3 origin-center relative lg:absolute bg-white mt-3 lg:w-auto w-full lg:min-w-[8rem] rounded ${openDrop ? '' : 'hidden'}`}>
                 <ul className='flex flex-col items-start px-4 justify-start space-y-2'>
                     {
                         links.map(({ label, href }) => (
-                            <li className=' capitalize text-md md:text-sm text-center py-1 cursor-pointer text-black'><Link onClick={() => {
+                            <li className=' capitalize text-md lg:text-sm text-center py-1 cursor-pointer text-black'><Link onClick={() => {
                                 setOpenDrop(false)
                                 onLinkClick()
                             }} href={`/servizi/${href}`}>{` ${label}`}</Link></li>

@@ -40,14 +40,14 @@ function NavBar() {
           <Image src={'/LogoBianco.png'} layout='responsive' width={'100'} height={'100'} />
         </div>
 
-        <div className={`ease-in-out duration-150 bg-black md:h-24 md:w-auto h-screen md:relative absolute w-screen md:left-0 ${open ? 'left-0' : 'left-[-100%]'}`}>
-          <ul className='block text-left my-auto md:flex flex-col md:flex-row px-9 py-2  md:space-y-0 md:space-x-6 space-y-7 md:mt-0 mt-28 md:h-full justify-center md:justify-start items-center'>
-            <li className='uppercase text-md w-full md:w-auto'>
+        <div className={`ease-in-out duration-150 bg-black lg:h-24 lg:w-auto h-screen lg:relative absolute w-screen lg:left-0 ${open ? 'left-0' : 'left-[-100%]'}`}>
+          <ul className='block text-left my-auto lg:flex flex-col lg:flex-row px-9 py-2  lg:space-y-0 lg:space-x-6 space-y-7 lg:mt-0 mt-28 lg:h-full justify-center lg:justify-start items-center'>
+            <li className=' text-md w-full lg:w-auto'>
             <Link className="w-full" onClick={() => {
                                 setOpen(false)
                             }} href={'/'}>Home</Link>
             </li>
-            <li className='uppercase text-md w-full md:w-auto'>
+            <li className=' text-md w-full lg:w-auto'>
             <Link onClick={() => {
                                 setOpen(false)
                             }} href={'/chi-sono'}>Chi sono</Link>
@@ -57,15 +57,14 @@ function NavBar() {
                 onLinkClick={() => setOpen(false)}
                 label={'Servizi'} links={links} />
 
-            <li className='uppercase text-sm bg-white text-black inline-block p-2  text-center rounded cursor-pointer md:w-auto w-full '>
+            <li className='uppercase text-sm bg-white text-black inline-block p-2  text-center rounded cursor-pointer lg:w-auto w-full '>
             <Link onClick={() => {
-                                setOpenDrop(false)
-                                onLinkClick()
-                            }} href={'/contattami'}>Contattami</Link>
+                               setOpen(false)
+                            }} href={'/contact'}>Contattami</Link>
             </li>
           </ul>
         </div>
-        <div onClick={() => setOpen(!open)} className='z-10 h-24 cursor-pointer flex justify-center items-center md:hidden'>
+        <div onClick={() => setOpen(!open)} className='z-10 h-24 cursor-pointer flex justify-center items-center lg:hidden'>
           <BiMenuAltLeft color='white' size='25' />
         </div>
       </div>
