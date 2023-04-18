@@ -25,7 +25,7 @@ const Service = ({ data }) => {
                     <Image className=' rounded-md object-cover' fill src={data.img.url} />
                 </div>
             </div>
-            <div className='text-white lg:px-[25%] leading-6 text-lg px-10 mt-16  flex flex-col justify-between pb-16'>
+            <div className='text-white lg:px-[25%] leading-6 text-lg px-8 mt-16  flex flex-col justify-between pb-16'>
                 <RichText field={data.titolo_servizio} />
                 <RichText field={data.testo_servizio} />
             </div>
