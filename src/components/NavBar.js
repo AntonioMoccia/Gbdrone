@@ -33,14 +33,14 @@ function NavBar() {
   }, [])
 
   return (
-    <nav className='fixed z-50 w-full h-24 bg-black text-white'>
+    <nav className='fixed z-50 w-full h-24 bg-[rgb(24,24,24)] text-white'>
       <div className='flex justify-between  px-6 h-24'>
 
         <div onClick={() => router.push('/')} className=' p-3 h-24 w-20 flex items-center justify-center z-10'>
           <Image src={'/LogoBianco.png'} layout='responsive' width={'100'} height={'100'} />
         </div>
 
-        <div className={`ease-in-out duration-150 bg-black lg:h-24 lg:w-auto h-screen lg:relative absolute w-screen lg:left-0 ${open ? 'left-0' : 'left-[-100%]'}`}>
+        <div className={`ease-in-out duration-150 bg-[rgb(24,24,24)] lg:h-24 lg:w-auto h-screen lg:relative absolute w-screen lg:left-0 ${open ? 'left-0' : 'left-[-100%]'}`}>
           <ul className='block text-left my-auto lg:flex flex-col lg:flex-row px-9 py-2  lg:space-y-0 lg:space-x-6 space-y-7 lg:mt-0 mt-28 lg:h-full justify-center lg:justify-start items-center'>
             <li className=' text-md w-full lg:w-auto'>
             <Link className="w-full" onClick={() => {
