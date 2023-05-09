@@ -7,7 +7,7 @@ function Layout({ children }) {
         <>
             <main className="min-h-screen">
             <NavBar />
-            <div className="pt-24">
+            <div className="md:py-24 pt-24 pb-12 min-h-screen ">
                 {children}
                 </div>
             <Footer />
