@@ -7,120 +7,500 @@ Source: https://sketchfab.com/3d-models/animated-drone-d47d61f8a78d4cce9f985ad7a
 Title: Animated Drone
 */
 
-import React, { useEffect, useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
-import { gsap } from 'gsap'
+import React, { useEffect, useRef } from "react";
+import { useGLTF, useAnimations } from "@react-three/drei";
+import { gsap } from "gsap";
 
 export function Model(props) {
-  const group = useRef()
-  const pointLightRef = useRef();
-  const { nodes, materials, animations } = useGLTF('/scene-transformed-ad.glb')
-  const { actions,names,mixer,clips } = useAnimations(animations, group)
-  
-  useEffect(()=>{
-    actions?.step_by_step.setDuration(30)
-    actions?.step_by_step.setLoop(0)
-    actions?.step_by_step.stop()
-    actions?.hover.play()
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF("/scene-transformed.glb");
+  const { actions } = useAnimations(animations, group);
 
-//    actions?.hover.play() 
+  useEffect(() => {
+    actions?.hover.play();
 
+    gsap.from(
+      group.current.position,
+      {
+        z: -12,
+        y:-7,
+        duration:1.5
+      }
+    );
+  }, []);
 
-    gsap.fromTo(group.current.position,{
-      y:-10
-    },{
-      y:0,
-      duration:4.9
-    })
-  },[])
   return (
-    <>
-    <group ref={group} scale={[11,11,11]} {...props} dispose={null}>
+    <group position={[0,-1,-1.2]} rotation={[Math.PI/8,0,0]} scale={[12, 12, 12]} ref={group} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
-        <group name="Sketchfab_model" rotation={[-Math.PI / 2,0, -Math.PI / 2]}>
+        <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="root">
             <group name="GLTF_SceneRootNode" rotation={[Math.PI / 2, 0, 0]}>
               <group name="RootNode0_0" scale={0.01}>
                 <group name="skeletal1_1">
                   <group name="GLTF_created_0">
                     <primitive object={nodes.GLTF_created_0_rootJoint} />
-                    <skinnedMesh name="Object_96" geometry={nodes.Object_96.geometry} material={materials.material_0} skeleton={nodes.Object_96.skeleton} />
-                    <skinnedMesh name="Object_99" geometry={nodes.Object_99.geometry} material={materials.material_0} skeleton={nodes.Object_99.skeleton} />
-                    <skinnedMesh name="Object_102" geometry={nodes.Object_102.geometry} material={materials.material_0} skeleton={nodes.Object_102.skeleton} />
-                    <skinnedMesh name="Object_105" geometry={nodes.Object_105.geometry} material={materials.material_0} skeleton={nodes.Object_105.skeleton} />
-                    <skinnedMesh name="Object_108" geometry={nodes.Object_108.geometry} material={materials.material_0} skeleton={nodes.Object_108.skeleton} />
-                    <skinnedMesh name="Object_111" geometry={nodes.Object_111.geometry} material={materials.material_0} skeleton={nodes.Object_111.skeleton} />
-                    <skinnedMesh name="Object_114" geometry={nodes.Object_114.geometry} material={materials.material_0} skeleton={nodes.Object_114.skeleton} />
-                    <skinnedMesh name="Object_117" geometry={nodes.Object_117.geometry} material={materials.material_0} skeleton={nodes.Object_117.skeleton} />
-                    <skinnedMesh name="Object_120" geometry={nodes.Object_120.geometry} material={materials.material_0} skeleton={nodes.Object_120.skeleton} />
-                    <skinnedMesh name="Object_123" geometry={nodes.Object_123.geometry} material={materials.material_0} skeleton={nodes.Object_123.skeleton} />
-                    <skinnedMesh name="Object_126" geometry={nodes.Object_126.geometry} material={materials.material_0} skeleton={nodes.Object_126.skeleton} />
-                    <skinnedMesh name="Object_129" geometry={nodes.Object_129.geometry} material={materials.material_0} skeleton={nodes.Object_129.skeleton} />
-                    <skinnedMesh name="Object_132" geometry={nodes.Object_132.geometry} material={materials.material_0} skeleton={nodes.Object_132.skeleton} />
-                    <skinnedMesh name="Object_135" geometry={nodes.Object_135.geometry} material={materials.material_0} skeleton={nodes.Object_135.skeleton} />
-                    <skinnedMesh name="Object_138" geometry={nodes.Object_138.geometry} material={materials.material_0} skeleton={nodes.Object_138.skeleton} />
-                    <skinnedMesh name="Object_141" geometry={nodes.Object_141.geometry} material={materials.material_0} skeleton={nodes.Object_141.skeleton} />
-                    <skinnedMesh name="Object_144" geometry={nodes.Object_144.geometry} material={materials.material_0} skeleton={nodes.Object_144.skeleton} />
-                    <skinnedMesh name="Object_147" geometry={nodes.Object_147.geometry} material={materials.material_0} skeleton={nodes.Object_147.skeleton} />
-                    <skinnedMesh name="Object_150" geometry={nodes.Object_150.geometry} material={materials.material_0} skeleton={nodes.Object_150.skeleton} />
-                    <skinnedMesh name="Object_153" geometry={nodes.Object_153.geometry} material={materials.material_0} skeleton={nodes.Object_153.skeleton} />
-                    <skinnedMesh name="Object_156" geometry={nodes.Object_156.geometry} material={materials.material_0} skeleton={nodes.Object_156.skeleton} />
-                    <skinnedMesh name="Object_159" geometry={nodes.Object_159.geometry} material={materials.material_0} skeleton={nodes.Object_159.skeleton} />
-                    <skinnedMesh name="Object_162" geometry={nodes.Object_162.geometry} material={materials.material_0} skeleton={nodes.Object_162.skeleton} />
-                    <skinnedMesh name="Object_165" geometry={nodes.Object_165.geometry} material={materials.material_23} skeleton={nodes.Object_165.skeleton} />
-                    <skinnedMesh name="Object_168" geometry={nodes.Object_168.geometry} material={materials.material_0} skeleton={nodes.Object_168.skeleton} />
-                    <skinnedMesh name="Object_171" geometry={nodes.Object_171.geometry} material={materials.material_0} skeleton={nodes.Object_171.skeleton} />
-                    <skinnedMesh name="Object_174" geometry={nodes.Object_174.geometry} material={materials.material_0} skeleton={nodes.Object_174.skeleton} />
-                    <skinnedMesh name="Object_177" geometry={nodes.Object_177.geometry} material={materials.material_0} skeleton={nodes.Object_177.skeleton} />
-                    <skinnedMesh name="Object_180" geometry={nodes.Object_180.geometry} material={materials.material_0} skeleton={nodes.Object_180.skeleton} />
-                    <skinnedMesh name="Object_183" geometry={nodes.Object_183.geometry} material={materials.material_0} skeleton={nodes.Object_183.skeleton} />
-                    <skinnedMesh name="Object_186" geometry={nodes.Object_186.geometry} material={materials.material_0} skeleton={nodes.Object_186.skeleton} />
-                    <skinnedMesh name="Object_189" geometry={nodes.Object_189.geometry} material={materials.material_0} skeleton={nodes.Object_189.skeleton} />
-                    <skinnedMesh name="Object_192" geometry={nodes.Object_192.geometry} material={materials.material_0} skeleton={nodes.Object_192.skeleton} />
-                    <skinnedMesh name="Object_195" geometry={nodes.Object_195.geometry} material={materials.material_0} skeleton={nodes.Object_195.skeleton} />
-                    <skinnedMesh name="Object_198" geometry={nodes.Object_198.geometry} material={materials.material_0} skeleton={nodes.Object_198.skeleton} />
-                    <skinnedMesh name="Object_201" geometry={nodes.Object_201.geometry} material={materials.material_0} skeleton={nodes.Object_201.skeleton} />
-                    <skinnedMesh name="Object_204" geometry={nodes.Object_204.geometry} material={materials.material_0} skeleton={nodes.Object_204.skeleton} />
-                    <skinnedMesh name="Object_207" geometry={nodes.Object_207.geometry} material={materials.material_0} skeleton={nodes.Object_207.skeleton} />
-                    <skinnedMesh name="Object_210" geometry={nodes.Object_210.geometry} material={materials.material_0} skeleton={nodes.Object_210.skeleton} />
-                    <skinnedMesh name="Object_213" geometry={nodes.Object_213.geometry} material={materials.material_0} skeleton={nodes.Object_213.skeleton} />
-                    <skinnedMesh name="Object_216" geometry={nodes.Object_216.geometry} material={materials.material_0} skeleton={nodes.Object_216.skeleton} />
-                    <skinnedMesh name="Object_219" geometry={nodes.Object_219.geometry} material={materials.material_0} skeleton={nodes.Object_219.skeleton} />
-                    <skinnedMesh name="Object_222" geometry={nodes.Object_222.geometry} material={materials.material_0} skeleton={nodes.Object_222.skeleton} />
-                    <skinnedMesh name="Object_225" geometry={nodes.Object_225.geometry} material={materials.material_0} skeleton={nodes.Object_225.skeleton} />
-                    <skinnedMesh name="Object_228" geometry={nodes.Object_228.geometry} material={materials.material_0} skeleton={nodes.Object_228.skeleton} />
-                    <skinnedMesh name="Object_231" geometry={nodes.Object_231.geometry} material={materials.material_0} skeleton={nodes.Object_231.skeleton} />
-                    <skinnedMesh name="Object_234" geometry={nodes.Object_234.geometry} material={materials.material_0} skeleton={nodes.Object_234.skeleton} />
-                    <skinnedMesh name="Object_237" geometry={nodes.Object_237.geometry} material={materials.material_0} skeleton={nodes.Object_237.skeleton} />
-                    <skinnedMesh name="Object_240" geometry={nodes.Object_240.geometry} material={materials.material_0} skeleton={nodes.Object_240.skeleton} />
-                    <skinnedMesh name="Object_243" geometry={nodes.Object_243.geometry} material={materials.material_0} skeleton={nodes.Object_243.skeleton} />
-                    <skinnedMesh name="Object_246" geometry={nodes.Object_246.geometry} material={materials.material_0} skeleton={nodes.Object_246.skeleton} />
-                    <skinnedMesh name="Object_249" geometry={nodes.Object_249.geometry} material={materials.material_0} skeleton={nodes.Object_249.skeleton} />
-                    <skinnedMesh name="Object_252" geometry={nodes.Object_252.geometry} material={materials.material_0} skeleton={nodes.Object_252.skeleton} />
-                    <skinnedMesh name="Object_255" geometry={nodes.Object_255.geometry} material={materials.material_0} skeleton={nodes.Object_255.skeleton} />
-                    <skinnedMesh name="Object_258" geometry={nodes.Object_258.geometry} material={materials.material_0} skeleton={nodes.Object_258.skeleton} />
-                    <skinnedMesh name="Object_261" geometry={nodes.Object_261.geometry} material={materials.material_0} skeleton={nodes.Object_261.skeleton} />
-                    <skinnedMesh name="Object_264" geometry={nodes.Object_264.geometry} material={materials.material_0} skeleton={nodes.Object_264.skeleton} />
-                    <skinnedMesh name="Object_267" geometry={nodes.Object_267.geometry} material={materials.material_0} skeleton={nodes.Object_267.skeleton} />
-                    <skinnedMesh name="Object_270" geometry={nodes.Object_270.geometry} material={materials.material_0} skeleton={nodes.Object_270.skeleton} />
-                    <skinnedMesh name="Object_273" geometry={nodes.Object_273.geometry} material={materials.material_0} skeleton={nodes.Object_273.skeleton} />
-                    <skinnedMesh name="Object_276" geometry={nodes.Object_276.geometry} material={materials.material_0} skeleton={nodes.Object_276.skeleton} />
-                    <skinnedMesh name="Object_279" geometry={nodes.Object_279.geometry} material={materials.material_0} skeleton={nodes.Object_279.skeleton} />
-                    <skinnedMesh name="Object_282" geometry={nodes.Object_282.geometry} material={materials.material_0} skeleton={nodes.Object_282.skeleton} />
-                    <skinnedMesh name="Object_285" geometry={nodes.Object_285.geometry} material={materials.material_0} skeleton={nodes.Object_285.skeleton} />
-                    <skinnedMesh name="Object_288" geometry={nodes.Object_288.geometry} material={materials.material_0} skeleton={nodes.Object_288.skeleton} />
-                    <skinnedMesh name="Object_291" geometry={nodes.Object_291.geometry} material={materials.material_0} skeleton={nodes.Object_291.skeleton} />
-                    <skinnedMesh name="Object_294" geometry={nodes.Object_294.geometry} material={materials.material_0} skeleton={nodes.Object_294.skeleton} />
-                    <skinnedMesh name="Object_297" geometry={nodes.Object_297.geometry} material={materials.material_0} skeleton={nodes.Object_297.skeleton} />
-                    <skinnedMesh name="Object_300" geometry={nodes.Object_300.geometry} material={materials.material_0} skeleton={nodes.Object_300.skeleton} />
-                    <skinnedMesh name="Object_303" geometry={nodes.Object_303.geometry} material={materials.material_0} skeleton={nodes.Object_303.skeleton} />
-                    <skinnedMesh name="Object_306" geometry={nodes.Object_306.geometry} material={materials.material_0} skeleton={nodes.Object_306.skeleton} />
-                    <skinnedMesh name="Object_309" geometry={nodes.Object_309.geometry} material={materials.material_0} skeleton={nodes.Object_309.skeleton} />
-                    <skinnedMesh name="Object_312" geometry={nodes.Object_312.geometry} material={materials.material_0} skeleton={nodes.Object_312.skeleton} />
-                    <skinnedMesh name="Object_315" geometry={nodes.Object_315.geometry} material={materials.material_0} skeleton={nodes.Object_315.skeleton} />
-                    <skinnedMesh name="Object_318" geometry={nodes.Object_318.geometry} material={materials.material_0} skeleton={nodes.Object_318.skeleton} />
-                    <skinnedMesh name="Object_321" geometry={nodes.Object_321.geometry} material={materials.material_0} skeleton={nodes.Object_321.skeleton} />
-                    <skinnedMesh name="Object_324" geometry={nodes.Object_324.geometry} material={materials.material_0} skeleton={nodes.Object_324.skeleton} />
+                    <skinnedMesh
+                      name="Object_96"
+                      geometry={nodes.Object_96.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_96.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_99"
+                      geometry={nodes.Object_99.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_99.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_102"
+                      geometry={nodes.Object_102.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_102.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_105"
+                      geometry={nodes.Object_105.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_105.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_108"
+                      geometry={nodes.Object_108.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_108.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_111"
+                      geometry={nodes.Object_111.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_111.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_114"
+                      geometry={nodes.Object_114.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_114.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_117"
+                      geometry={nodes.Object_117.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_117.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_120"
+                      geometry={nodes.Object_120.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_120.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_123"
+                      geometry={nodes.Object_123.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_123.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_126"
+                      geometry={nodes.Object_126.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_126.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_129"
+                      geometry={nodes.Object_129.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_129.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_132"
+                      geometry={nodes.Object_132.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_132.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_135"
+                      geometry={nodes.Object_135.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_135.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_138"
+                      geometry={nodes.Object_138.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_138.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_141"
+                      geometry={nodes.Object_141.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_141.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_144"
+                      geometry={nodes.Object_144.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_144.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_147"
+                      geometry={nodes.Object_147.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_147.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_150"
+                      geometry={nodes.Object_150.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_150.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_153"
+                      geometry={nodes.Object_153.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_153.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_156"
+                      geometry={nodes.Object_156.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_156.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_159"
+                      geometry={nodes.Object_159.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_159.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_162"
+                      geometry={nodes.Object_162.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_162.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_165"
+                      geometry={nodes.Object_165.geometry}
+                      material={materials.material_23}
+                      skeleton={nodes.Object_165.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_168"
+                      geometry={nodes.Object_168.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_168.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_171"
+                      geometry={nodes.Object_171.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_171.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_174"
+                      geometry={nodes.Object_174.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_174.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_177"
+                      geometry={nodes.Object_177.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_177.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_180"
+                      geometry={nodes.Object_180.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_180.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_183"
+                      geometry={nodes.Object_183.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_183.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_186"
+                      geometry={nodes.Object_186.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_186.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_189"
+                      geometry={nodes.Object_189.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_189.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_192"
+                      geometry={nodes.Object_192.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_192.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_195"
+                      geometry={nodes.Object_195.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_195.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_198"
+                      geometry={nodes.Object_198.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_198.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_201"
+                      geometry={nodes.Object_201.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_201.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_204"
+                      geometry={nodes.Object_204.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_204.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_207"
+                      geometry={nodes.Object_207.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_207.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_210"
+                      geometry={nodes.Object_210.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_210.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_213"
+                      geometry={nodes.Object_213.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_213.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_216"
+                      geometry={nodes.Object_216.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_216.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_219"
+                      geometry={nodes.Object_219.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_219.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_222"
+                      geometry={nodes.Object_222.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_222.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_225"
+                      geometry={nodes.Object_225.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_225.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_228"
+                      geometry={nodes.Object_228.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_228.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_231"
+                      geometry={nodes.Object_231.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_231.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_234"
+                      geometry={nodes.Object_234.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_234.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_237"
+                      geometry={nodes.Object_237.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_237.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_240"
+                      geometry={nodes.Object_240.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_240.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_243"
+                      geometry={nodes.Object_243.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_243.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_246"
+                      geometry={nodes.Object_246.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_246.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_249"
+                      geometry={nodes.Object_249.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_249.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_252"
+                      geometry={nodes.Object_252.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_252.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_255"
+                      geometry={nodes.Object_255.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_255.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_258"
+                      geometry={nodes.Object_258.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_258.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_261"
+                      geometry={nodes.Object_261.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_261.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_264"
+                      geometry={nodes.Object_264.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_264.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_267"
+                      geometry={nodes.Object_267.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_267.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_270"
+                      geometry={nodes.Object_270.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_270.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_273"
+                      geometry={nodes.Object_273.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_273.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_276"
+                      geometry={nodes.Object_276.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_276.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_279"
+                      geometry={nodes.Object_279.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_279.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_282"
+                      geometry={nodes.Object_282.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_282.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_285"
+                      geometry={nodes.Object_285.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_285.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_288"
+                      geometry={nodes.Object_288.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_288.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_291"
+                      geometry={nodes.Object_291.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_291.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_294"
+                      geometry={nodes.Object_294.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_294.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_297"
+                      geometry={nodes.Object_297.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_297.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_300"
+                      geometry={nodes.Object_300.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_300.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_303"
+                      geometry={nodes.Object_303.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_303.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_306"
+                      geometry={nodes.Object_306.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_306.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_309"
+                      geometry={nodes.Object_309.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_309.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_312"
+                      geometry={nodes.Object_312.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_312.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_315"
+                      geometry={nodes.Object_315.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_315.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_318"
+                      geometry={nodes.Object_318.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_318.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_321"
+                      geometry={nodes.Object_321.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_321.skeleton}
+                    />
+                    <skinnedMesh
+                      name="Object_324"
+                      geometry={nodes.Object_324.geometry}
+                      material={materials.material_0}
+                      skeleton={nodes.Object_324.skeleton}
+                    />
                   </group>
                 </group>
               </group>
@@ -129,8 +509,7 @@ export function Model(props) {
         </group>
       </group>
     </group>
-    </>
-  )
+  );
 }
 
-useGLTF.preload('/scene-transformed-ad.glb')
+useGLTF.preload("/scene-transformed.glb");

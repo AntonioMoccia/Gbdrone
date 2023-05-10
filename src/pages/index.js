@@ -1,9 +1,25 @@
-import Image from 'next/image'
-import Head from 'next/head'
+import Image from "next/image";
+import Head from "next/head";
+import CanvasComponent from "../components/CanvasComponent";
+import { useEffect } from "react";
+import { createClient } from "../prismicio";
 
-
-export default function Home() {
+export async function getServerSideProps(context) {
+  const client = createClient();
+  const home = await client.getSingle("home");
   
+  return {
+    props: {
+      data: home.data,
+    },
+  };
+}
+
+export default function Home({ data }) {
+  useEffect(() => {
+    console.log(data);
+  }, [data]);
+
   return (
     <>
       <Head>
@@ -13,12 +29,17 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <section className={` h-full  bg-orange-700`}>
+      <section className={` h-full `}>
+        <div className="h-screen fixed z-10 w-screen"></div>
         <div>
+{/*           <div>
+            <video autoPlay loop muted={true} playsInline id="myVideo">
+              <source src={data.video.url} type="video/mp4" />
+            </video>
+          </div> */}
+          <CanvasComponent />
         </div>
       </section>
-
     </>
-
-  )
+  );
 }

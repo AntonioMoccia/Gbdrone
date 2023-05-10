@@ -54,7 +54,7 @@ function Footer() {
             <span className="font-bold">P. Iva</span>
             {data.partita_iva}
           </div>
-          <div className="flex w-full justify-start mt-10 md:w-auto">
+          <div className="flex w-full justify-center md:justify-start mt-10 md:w-auto">
           <BsFacebook color="white" />
           <BsInstagram color="white" className="ml-5" />
         </div>
