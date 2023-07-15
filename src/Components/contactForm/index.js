@@ -18,6 +18,8 @@ const [status,setStatus] = useState(0)
         .then((result) => {
             setStatus(200)
         }, (error) => {
+            console.log(error)  
+            console.log(form.current)  
             setStatus(400)
         });
     };
