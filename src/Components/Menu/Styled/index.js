@@ -20,7 +20,7 @@ export const Logo =styled(Link)`
     text-transform:uppercase;
     img{
         margin-top: 8px;
-        max-width:60px;
+        max-width:160px;
         height: auto;
     }
 `;
